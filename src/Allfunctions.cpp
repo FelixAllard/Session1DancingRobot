@@ -1,8 +1,8 @@
 //
-// Created by dan23 on 20/10/2025.
+// Created by dan23 on 21/10/2025.
 //
-#include "allfunctions.h"
 
+#include "Allfunctions.h"
 #include <librobus.h>
 
 
@@ -56,3 +56,48 @@ void BlueLEDOff() {
     digitalWrite(lumbleue,LOW);}
 
 
+//Random LEDs
+void RandomLEDs() {
+    long RanNum = random(0,9);
+
+    RedLEDOff(); //Toutes les turn off
+    YellowLEDOff();
+    GreenLEDOff();
+    BlueLEDOff();
+
+    if (RanNum == 0){ //Fcts pour randomize
+        RedLEDOn();}
+
+    if (RanNum == 1){
+        YellowLEDOn();}
+
+    if (RanNum == 2){
+        GreenLEDOn();}
+
+    if (RanNum == 3){
+        BlueLEDOn();}
+
+    if (RanNum == 4){
+        RedLEDOn();
+        YellowLEDOn();}
+
+    if (RanNum == 5){
+        RedLEDOn();
+        GreenLEDOn();}
+
+    if (RanNum == 6){
+        RedLEDOn();
+        BlueLEDOn();}
+
+    if (RanNum == 7){
+        YellowLEDOn();
+        GreenLEDOn();}
+
+    if (RanNum == 8){
+        YellowLEDOn();
+        BlueLEDOn();}
+
+    if (RanNum == 9){
+        GreenLEDOn();
+        BlueLEDOn();}
+}
