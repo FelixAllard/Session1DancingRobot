@@ -7,10 +7,10 @@
 
 
 void SetupLEDS() {
-    pinMode(lumrouge, OUTPUT);
-    pinMode(lumjaune, OUTPUT);
-    pinMode(lumverte, OUTPUT);
-    pinMode(lumbleue, OUTPUT);
+    pinMode(redlight, OUTPUT);
+    pinMode(yellowlight, OUTPUT);
+    pinMode(greenlight, OUTPUT);
+    pinMode(bluelight, OUTPUT);
 }
 
 void InitServosArms() {
@@ -35,37 +35,37 @@ void LArmLow() {
 void RArmLow() {
     SERVO_SetAngle(1, 0);}
 
-//Allumer LEDS
+//Turn LEDs on
 void RedLEDOn() {
-    digitalWrite(lumrouge,HIGH);}
+    digitalWrite(redlight,HIGH);}
 void YellowLEDOn() {
-    digitalWrite(lumjaune,HIGH);}
+    digitalWrite(yellowlight,HIGH);}
 void GreenLEDOn() {
-    digitalWrite(lumverte,HIGH);}
+    digitalWrite(greenlight,HIGH);}
 void BlueLEDOn() {
-    digitalWrite(lumbleue,HIGH);}
+    digitalWrite(bluelight,HIGH);}
 
-//Éteindre LEDS
+//Turn LEDs off
 void RedLEDOff() {
-    digitalWrite(lumrouge,LOW);}
+    digitalWrite(redlight,LOW);}
 void YellowLEDOff() {
-    digitalWrite(lumjaune,LOW);}
+    digitalWrite(yellowlight,LOW);}
 void GreenLEDOff() {
-    digitalWrite(lumverte,LOW);}
+    digitalWrite(greenlight,LOW);}
 void BlueLEDOff() {
-    digitalWrite(lumbleue,LOW);}
+    digitalWrite(bluelight,LOW);}
 
 
 //Random LEDs
 void RandomLEDs() {
     long RanNum = random(0,9);
 
-    RedLEDOff(); //Toutes les turn off
+    RedLEDOff(); //Turn off all LEDs
     YellowLEDOff();
     GreenLEDOff();
     BlueLEDOff();
 
-    if (RanNum == 0){ //Fcts pour randomize
+    if (RanNum == 0){ //Randomize LEDs on
         RedLEDOn();}
 
     if (RanNum == 1){

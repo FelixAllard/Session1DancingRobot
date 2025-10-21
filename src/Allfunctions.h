@@ -5,15 +5,15 @@
 #ifndef SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
 #define SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
 
-//Servomotors (ajouter nb pins)
-const int servogauche = x;
-const int servodroit = x;
+//Servomotors (ajouter num pins)
+const int rightservo = x;
+const int leftservo = x;
 
-//LEDs (ajouter nb pins)
-const int lumrouge = x;
-const int lumjaune = x;
-const int lumverte = x;
-const int lumbleue = x;
+//LEDs (ajouter num pins)
+const int redlight = x;
+const int yellowlight = x;
+const int greenlight = x;
+const int bluelight = x;
 
 // Setup
 void SetupLEDS();
@@ -40,6 +40,10 @@ void RedLEDOff();
 void YellowLEDOff();
 void GreenLEDOff();
 void BlueLEDOff();
+
+//Randomize LEDs
+void RandomLEDs();
+
 
 
 #endif //SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
