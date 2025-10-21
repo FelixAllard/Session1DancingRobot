@@ -28,4 +28,3 @@ std::vector<Point2> generateTrajectory(Point2 p0, Point2 p1, TrajType type, int 
 
 // Utilitaires
 float dist(Point2 a, Point2 b);
-//s

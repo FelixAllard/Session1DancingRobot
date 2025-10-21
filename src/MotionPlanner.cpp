@@ -41,4 +41,3 @@ void FollowTrajectorySequence() {
     followPoints(seg3);
     followPoints(seg4);
 }
-//s
