@@ -20,7 +20,7 @@ void loop() {
 //Complete sequence FAIRE ATTENTION AUX DELAIS ET TOUT, JAI RIEN AJOUTÉ
 
 void sequence() {
-    //PREMIERE CHANSON
+    //PREMIERE CHANSON----------------------------------------------------------
 
     // LArmHigh
     // LArmHigh + RArmHigh
@@ -45,7 +45,7 @@ void sequence() {
     // 360 antihoraire + RandomLEDs + LArmStraight + RArmStraight
 
 
-    //DEUXIEME CHANSON
+    //DEUXIEME CHANSON----------------------------------------------------------------
 
     // Position 1 + LArmLow + RArmLow
     // POSITION 2
@@ -60,7 +60,7 @@ void sequence() {
     // POSITION 0
 
 
-    //TROISIEME CHANSON
+    //TROISIEME CHANSON-----------------------------------------------------------------
 
     // Changement place en bas avk P-07 (-1)
     // POSITION 1 + RedLEDOn
@@ -71,7 +71,7 @@ void sequence() {
     // 720 horaire + RandomLEDs
 
 
-    //QUATRIEME CHANSON
+    //QUATRIEME CHANSON-------------------------------------------------------------------
 
     // Retour changement place en haut avk P-07 (+1)
     // POSITION 1 + RedLEDOn
@@ -81,7 +81,7 @@ void sequence() {
     // POSITION 0 + RandomLEDs
 
 
-    //CINQUIEME CHANSON
+    //CINQUIEME CHANSON-------------------------------------------------------------------
 
     // POSITION 1 + RedLEDOn + LArmStraight + RArmStraight
     // POSITION 2 + YellowLEDOn + LArmHigh + RArmHigh
@@ -94,7 +94,7 @@ void sequence() {
     // POSITION 4 + LArmStraight + RArmHigh
 
 
-    //SIXIEME CHANSON
+    //SIXIEME CHANSON---------------------------------------------------------------------
 
     // POSITION 1 + RandomLEDs + LArmHigh + RArmHigh
     // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
