@@ -2,6 +2,8 @@
 #include <Allfunctions.h>
 #include <librobus.h>
 
+unsigned long startTime = 0;
+
 void setup() {
 // write your initialization code here
     BoardInit();
@@ -21,6 +23,12 @@ void loop() {
 
 void sequence() {
     //PREMIERE CHANSON----------------------------------------------------------
+
+    startTime = millis();//Snapshot of current time
+    while (millis() - startTime < 5000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
+
+        delay(500);
+    }
 
     // LArmHigh
     // LArmHigh + RArmHigh
