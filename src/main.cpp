@@ -40,22 +40,81 @@ void sequence() {
     // GreenLEDOn
     // BlueLEDOn
 
-    // RedLEDOn + LArmStraight + RArmStraight
-    // YellowLEDOn + LArmHigh + RArmHigh
-    // GreenLEDOn + LArmStraight + RArmStraight
-    // BlueLEDOn + LArmLow + RArmLow
+    startTime = millis();    // RedLEDOn + LArmStraight + RArmStraight
+    while (millis() - startTime < 2000) {
+        RedLEDOn();
+        LArmStraight();
+        RArmStraight();
 
-    // 360 horaire + RandomLEDs + LArmHigh + RArmHigh
+        delay(500);
+    }
+
+    startTime = millis();    // YellowLEDOn + LArmHigh + RArmHigh
+    while (millis() - startTime < 2000) {
+        YellowLEDOn();
+        LArmHigh();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // GreenLEDOn + LArmStraight + RArmStraight
+    while (millis() - startTime < 2000) {
+        GreenLEDOn();
+        LArmStraight();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // BlueLEDOn + LArmLow + RArmLow
+    while (millis() - startTime < 2000) {
+        BlueLEDOn();
+        LArmLow();
+        RArmLow();
+
+        delay(500);
+    }
+
+
+    startTime = millis();    // 360 horaire + RandomLEDs + LArmHigh + RArmHigh
+    while (millis() - startTime < 4000) {
+        // 360 horaire
+        RandomLEDs();
+        LArmHigh();
+        RArmHigh();
+
+        delay(500);
+    }
+
     // Alternated RedLEDOn/YellowLEDOn + LArmLow + RArmLow
     // Alternated YellowLEDOn/GreenLEDOn
     // Alternated GreenLEDOn/BlueLEDOn
     // Alternated BlueLEDOn/RedLEDOn
-    // 360 antihoraire + RandomLEDs + LArmStraight + RArmStraight
+
+    startTime = millis();    // 360 antihoraire + RandomLEDs + LArmStraight + RArmStraight
+    while (millis() - startTime < 4000) {
+        // 360 anti-horaire
+        RandomLEDs();
+        LArmStraight();
+        RArmStraight();
+
+        delay(500);
+    }
+
 
 
     //DEUXIEME CHANSON----------------------------------------------------------------
 
-    // Position 1 + LArmLow + RArmLow
+    startTime = millis();    // Position 1 + LArmLow + RArmLow
+    while (millis() - startTime < 2000) {
+        // POSITION 1;
+        LArmLow();
+        RArmLow();
+
+        delay(500);
+    }
+
     // POSITION 2
     // POSITION 3
     // POSITION 4
