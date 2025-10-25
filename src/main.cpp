@@ -11,7 +11,6 @@ void setup() {
     InitServosArms();
     SetupLEDS();
 
-
 }
 
 void loop() {
