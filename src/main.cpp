@@ -24,16 +24,45 @@ void loop() {
 void sequence() {
     //PREMIERE CHANSON----------------------------------------------------------
 
-    startTime = millis();//Snapshot of current time
-    while (millis() - startTime < 5000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
+    startTime = millis();//Snapshot of current time, attente
+    while (millis() - startTime < 8000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
+        LArmLow();
+        RArmLow();
+        RedLEDOff();
+        YellowLEDOff();
+        GreenLEDOff();
+        BlueLEDOff();
 
         delay(500);
     }
 
-    // LArmHigh
-    // LArmHigh + RArmHigh
-    // LArmLow + RArmHigh
-    // LArmLow + RArmLow
+    startTime = millis();    // LArmHigh
+    while (millis() - startTime < 2000) {
+        LArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // LArmHigh + RArmHigh
+    while (millis() - startTime < 2000) {
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // LArmLow + RArmHigh
+    while (millis() - startTime < 2000) {
+        LArmLow();
+
+        delay(500);
+    }
+
+    startTime = millis();    // LArmLow + RArmLow for 18 seconds
+    while (millis() - startTime < 18000) {
+        RArmLow();
+
+        delay(500);
+    }
 
     startTime = millis();    // RedLEDOn
     while (millis() - startTime < 2000) {
@@ -207,7 +236,7 @@ void sequence() {
     //DEUXIEME CHANSON----------------------------------------------------------------
 
     startTime = millis();    // Position 1 + LArmLow + RArmLow
-    while (millis() - startTime < 2000) {
+    while (millis() - startTime < 4000) {
         // POSITION 1;
         LArmLow();
         RArmLow();
@@ -229,31 +258,126 @@ void sequence() {
 
     //TROISIEME CHANSON-----------------------------------------------------------------
 
-    // Changement place en bas avk P-07 (-1)
-    // POSITION 1 + RedLEDOn
-    // POSITION 2 + YellowLEDOn
-    // POSITION 3 + GreenLEDOn
-    // POSITION 4 + BlueLEDOn
-    // POSITION 0 +RedLEDOn+YellowLEDOn+GreenLEDOn+BlueLEDOn
-    // 720 horaire + RandomLEDs
+    // Changement place en bas avk P-07 (-1) 8sec
+
+    startTime = millis();    // POSITION 1 + RedLEDOn
+    while (millis() - startTime < 4000) {
+        // POSITION 1;
+        RedLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 2 + YellowLEDOn
+    while (millis() - startTime < 4000) {
+        RedLEDOff();
+        // POSITION 2;
+        YellowLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 3 + GreenLEDOn
+    while (millis() - startTime < 4000) {
+        YellowLEDOff();
+        // POSITION 3;
+        GreenLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 4 + BlueLEDOn
+    while (millis() - startTime < 4000) {
+        GreenLEDOff();
+        // POSITION 4;
+        BlueLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 0 +RedLEDOn+YellowLEDOn+GreenLEDOn+BlueLEDOn
+    while (millis() - startTime < 4000) {
+        // POSITION 0;
+        RedLEDOn();
+        YellowLEDOn();
+        GreenLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // 720 horaire + RandomLEDs
+    while (millis() - startTime < 4000) {
+        // 720 horaire
+        RandomLEDs();
+
+        delay(500);
+    }
+
+    RedLEDOff();
+    YellowLEDOff();
+    GreenLEDOff();
+    BlueLEDOff();
 
 
     //QUATRIEME CHANSON-------------------------------------------------------------------
 
-    // Retour changement place en haut avk P-07 (+1)
-    // POSITION 1 + RedLEDOn
-    // POSITION 2 + YellowLEDOn
-    // POSITION 3 + GreenLEDOn
-    // POSITION 4 + BlueLEDOn
-    // POSITION 0 + RandomLEDs
+    // Retour changement place en haut avk P-07 (+1) 8 sec
 
+    startTime = millis();    // POSITION 1 + RedLEDOn
+    while (millis() - startTime < 4000) {
+        // POSITION 1;
+        RedLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 2 + YellowLEDOn
+    while (millis() - startTime < 4000) {
+        RedLEDOff();
+        // POSITION 2;
+        YellowLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 3 + GreenLEDOn
+    while (millis() - startTime < 4000) {
+        YellowLEDOff();
+        // POSITION 3;
+        GreenLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 4 + BlueLEDOn
+    while (millis() - startTime < 4000) {
+        GreenLEDOff();
+        // POSITION 4;
+        BlueLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 0 + RandomLEDs
+    while (millis() - startTime < 4000) {
+        BlueLEDOff();
+        // POSITION 0;
+        RandomLEDs();
+
+        delay(500);
+    }
+
+    RedLEDOff();
+    YellowLEDOff();
+    GreenLEDOff();
+    BlueLEDOff();
 
     //CINQUIEME CHANSON-------------------------------------------------------------------
 
     // POSITION 1 + RedLEDOn + LArmStraight + RArmStraight
     // POSITION 2 + YellowLEDOn + LArmHigh + RArmHigh
     // POSITION 3 + GreenLEDOn + LArmLow + RArmLow
-    //POSITION 4 + BlueLEDOn + LArmStraight + RArmStraight
+    // POSITION 4 + BlueLEDOn + LArmStraight + RArmStraight
 
     // POSITION 1 + LArmHigh + RArmHigh
     // POSITION 2 + LArmHigh + RArmStraight
