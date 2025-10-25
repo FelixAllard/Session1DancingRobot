@@ -373,39 +373,245 @@ void sequence() {
     BlueLEDOff();
 
     //CINQUIEME CHANSON-------------------------------------------------------------------
+    startTime = millis();    // POSITION 1 + RedLEDOn + LArmStraight + RArmStraight
+    while (millis() - startTime < 4000) {
+        // POSITION 1;
+        RedLEDOn();
+        LArmStraight();
+        RArmStraight();
 
-    // POSITION 1 + RedLEDOn + LArmStraight + RArmStraight
-    // POSITION 2 + YellowLEDOn + LArmHigh + RArmHigh
-    // POSITION 3 + GreenLEDOn + LArmLow + RArmLow
-    // POSITION 4 + BlueLEDOn + LArmStraight + RArmStraight
-
-    // POSITION 1 + LArmHigh + RArmHigh
-    // POSITION 2 + LArmHigh + RArmStraight
-    // POSITION 3 + LArmStraight + RArmStraight
-    // POSITION 4 + LArmStraight + RArmHigh
-
-
-    //SIXIEME CHANSON---------------------------------------------------------------------
-
-    // POSITION 1 + RandomLEDs + LArmHigh + RArmHigh
-    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
-    // POSITION 3 + RandomLEDs + LArmStraight + RArmStraight
-    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
-
-    for (int i=1;i<=2;i++) { // 2 fois la meme chose
-        // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
-        // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
-        // POSITION 3 + RandomLEDs + LArmStraight + RArmStraight
-        // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+        delay(500);
     }
 
-    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
-    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
-    // POSITION 3 + RandomLEDs + !!!360 horaire!!! + LArmStraight + RArmStraight
-    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+    startTime = millis();    // POSITION 2 + YellowLEDOn + LArmHigh + RArmHigh
+    while (millis() - startTime < 4000) {
+        RedLEDOff();
+        // POSITION 2;
+        YellowLEDOn();
+        LArmHigh();
+        RArmHigh();
 
-    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
-    // POSITION 0 + RandomLEDs
-    // 1080 horaire
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 3 + GreenLEDOn + LArmLow + RArmLow
+    while (millis() - startTime < 4000) {
+        YellowLEDOff();
+        // POSITION 3;
+        GreenLEDOn();
+        LArmLow();
+        RArmLow();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 4 + BlueLEDOn + LArmStraight + RArmStraight
+    while (millis() - startTime < 4000) {
+        GreenLEDOff();
+        // POSITION 4;
+        BlueLEDOn();
+        LArmStraight();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 1 + LArmHigh + RArmHigh
+    while (millis() - startTime < 4000) {
+        BlueLEDOff();
+        // POSITION 1;
+        LArmHigh();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 2 + LArmHigh + RArmStraight
+    while (millis() - startTime < 4000) {
+        // POSITION 2;
+        LArmHigh();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 3 + LArmStraight + RArmStraight
+    while (millis() - startTime < 4000) {
+        // POSITION 3;
+        LArmStraight();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 4 + LArmStraight + RArmHigh
+    while (millis() - startTime < 4000) {
+        // POSITION 4;
+        LArmStraight();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    //SIXIEME CHANSON- FAIRE ATTENTION AUX DÉLAIS CAR CEST PAS LES BONS!!!--------------------------------------------------------------------
+
+    startTime = millis();    // POSITION 1 + RandomLEDs + LArmHigh + RArmHigh
+    while (millis() - startTime < 2000) {
+        // POSITION 1;
+        RandomLEDs();
+        LArmHigh();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+    while (millis() - startTime < 2000) {
+        // POSITION 2;
+        RandomLEDs();
+        LArmHigh();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 3 + RandomLEDs + LArmStraight + RArmStraight
+    while (millis() - startTime < 2000) {
+        // POSITION 3;
+        RandomLEDs();
+        LArmStraight();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+    while (millis() - startTime < 2000) {
+        // POSITION 4;
+        RandomLEDs();
+        LArmStraight();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    for (int i=1;i<=2;i++) { // 2 fois la meme chose
+        startTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+        while (millis() - startTime < 2000) {
+            // POSITION 1;
+            //360 horaire;
+            RandomLEDs();
+            LArmHigh();
+            RArmHigh();
+
+            delay(500);
+        }
+
+        startTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+        while (millis() - startTime < 2000) {
+            // POSITION 2;
+            RandomLEDs();
+            LArmHigh();
+            RArmStraight();
+
+            delay(500);
+        }
+
+        startTime = millis();    // POSITION 3 + RandomLEDs + LArmStraight + RArmStraight
+        while (millis() - startTime < 2000) {
+            // POSITION 3;
+            RandomLEDs();
+            LArmStraight();
+            RArmStraight();
+
+            delay(500);
+        }
+
+        startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+        while (millis() - startTime < 2000) {
+            // POSITION 4;
+            RandomLEDs();
+            LArmStraight();
+            RArmHigh();
+
+            delay(500);
+        }
+
+    }
+
+    startTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+    while (millis() - startTime < 2000) {
+        // POSITION 1;
+        //360 horaire;
+        RandomLEDs();
+        LArmHigh();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+    while (millis() - startTime < 2000) {
+        // POSITION 2;
+        RandomLEDs();
+        LArmHigh();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 3 + RandomLEDs + 360 horaire + LArmStraight + RArmStraight
+    while (millis() - startTime < 2000) {
+        // POSITION 3;
+        // 360 horaire
+        RandomLEDs();
+        LArmStraight();
+        RArmStraight();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+    while (millis() - startTime < 2000) {
+        // POSITION 4;
+        RandomLEDs();
+        LArmStraight();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+    while (millis() - startTime < 2000) {
+        // POSITION 1;
+        //360 horaire;
+        RandomLEDs();
+        LArmHigh();
+        RArmHigh();
+
+        delay(500);
+    }
+
+    startTime = millis();    // POSITION 0 + RandomLEDs
+    while (millis() - startTime < 2000) {
+        LArmLow();
+        RArmLow();
+        // POSITION 0;
+        RandomLEDs();
+
+        delay(500);
+    }
+
+    startTime = millis();    // 1080 horaire
+    while (millis() - startTime < 2000) {
+        // 1080 horaire;
+
+        delay(500);
+    }
+
+    RedLEDOff();
+    YellowLEDOff();
+    GreenLEDOff();
+    BlueLEDOff();
 
 }
