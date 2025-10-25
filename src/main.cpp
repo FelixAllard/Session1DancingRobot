@@ -35,13 +35,45 @@ void sequence() {
     // LArmLow + RArmHigh
     // LArmLow + RArmLow
 
-    // RedLEDOn
-    // YellowLEDOn
-    // GreenLEDOn
-    // BlueLEDOn
+    startTime = millis();    // RedLEDOn
+    while (millis() - startTime < 2000) {
+        RedLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // YellowLEDOn
+    while (millis() - startTime < 2000) {
+        RedLEDOff();
+
+        YellowLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // GreenLEDOn
+    while (millis() - startTime < 2000) {
+        YellowLEDOff();
+
+        GreenLEDOn();
+
+        delay(500);
+    }
+
+    startTime = millis();    // BlueLEDOn
+    while (millis() - startTime < 2000) {
+        GreenLEDOff();
+
+        BlueLEDOn();
+
+        delay(500);
+    }
+
 
     startTime = millis();    // RedLEDOn + LArmStraight + RArmStraight
     while (millis() - startTime < 2000) {
+        BlueLEDOff();
+
         RedLEDOn();
         LArmStraight();
         RArmStraight();
@@ -51,6 +83,8 @@ void sequence() {
 
     startTime = millis();    // YellowLEDOn + LArmHigh + RArmHigh
     while (millis() - startTime < 2000) {
+        RedLEDOff();
+
         YellowLEDOn();
         LArmHigh();
         RArmHigh();
@@ -60,6 +94,8 @@ void sequence() {
 
     startTime = millis();    // GreenLEDOn + LArmStraight + RArmStraight
     while (millis() - startTime < 2000) {
+        YellowLEDOff();
+
         GreenLEDOn();
         LArmStraight();
         RArmStraight();
@@ -69,6 +105,8 @@ void sequence() {
 
     startTime = millis();    // BlueLEDOn + LArmLow + RArmLow
     while (millis() - startTime < 2000) {
+        GreenLEDOff();
+
         BlueLEDOn();
         LArmLow();
         RArmLow();
@@ -76,10 +114,11 @@ void sequence() {
         delay(500);
     }
 
-
     startTime = millis();    // 360 horaire + RandomLEDs + LArmHigh + RArmHigh
     while (millis() - startTime < 4000) {
         // 360 horaire
+        BlueLEDOff();
+
         RandomLEDs();
         LArmHigh();
         RArmHigh();
@@ -87,10 +126,67 @@ void sequence() {
         delay(500);
     }
 
-    // Alternated RedLEDOn/YellowLEDOn + LArmLow + RArmLow
-    // Alternated YellowLEDOn/GreenLEDOn
-    // Alternated GreenLEDOn/BlueLEDOn
-    // Alternated BlueLEDOn/RedLEDOn
+    RedLEDOff();
+    YellowLEDOff();
+    GreenLEDOff();
+    BlueLEDOff();
+
+    startTime = millis();     // Alternated RedLEDOn/YellowLEDOn + LArmLow + RArmLow
+    while (millis() - startTime < 2000) {
+        LArmLow();
+        RArmLow();
+        RedLEDOn();
+        YellowLEDOff();
+
+        delay(100);
+
+        RedLEDOff();
+        YellowLEDOn();
+
+        delay(100);
+    }
+
+    startTime = millis();     // Alternated YellowLEDOn/GreenLEDOn
+    while (millis() - startTime < 2000) {
+        YellowLEDOn();
+        GreenLEDOff();
+
+        delay(100);
+
+        YellowLEDOff();
+        GreenLEDOn();
+
+        delay(100);
+    }
+
+
+    startTime = millis();     // Alternated GreenLEDOn/BlueLEDOn
+    while (millis() - startTime < 2000) {
+        GreenLEDOn();
+        BlueLEDOff();
+
+        delay(100);
+
+        GreenLEDOff();
+        BlueLEDOn();
+
+        delay(100);
+    }
+
+    startTime = millis();    // Alternated BlueLEDOn/RedLEDOn
+    while (millis() - startTime < 2000) {
+        BlueLEDOn();
+        RedLEDOff();
+
+        delay(100);
+
+        BlueLEDOff();
+        RedLEDOn();
+
+        delay(100);
+    }
+
+    RedLEDOff();
 
     startTime = millis();    // 360 antihoraire + RandomLEDs + LArmStraight + RArmStraight
     while (millis() - startTime < 4000) {
@@ -102,6 +198,10 @@ void sequence() {
         delay(500);
     }
 
+    RedLEDOff();
+    YellowLEDOff();
+    GreenLEDOff();
+    BlueLEDOff();
 
 
     //DEUXIEME CHANSON----------------------------------------------------------------
