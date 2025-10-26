@@ -14,13 +14,15 @@ void setup() {
 }
 
 void loop() {
-
+    RArmHigh();
 }
 
 
 //Complete sequence FAIRE ATTENTION AUX DELAIS ET TOUT, JAI RIEN AJOUTÉ
 
 void sequence() {
+
+
     //PREMIERE CHANSON----------------------------------------------------------
 
     startTime = millis();//Snapshot of current time, attente

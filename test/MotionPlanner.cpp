@@ -2,7 +2,8 @@
 // Created by nicolas-roy on 21/10/2025.
 //
 // Main usage example (intégrer dans ton loop / routine)
-#include "Trajectories.h"
+#include "../src/Trajectoires.h"
+
 
 // Définitions du losange centré en (0,0)
 float d = 0.25f; // demi-distance aux coins (m)

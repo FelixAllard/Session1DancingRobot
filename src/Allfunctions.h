@@ -6,14 +6,14 @@
 #define SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
 
 //Servomotors (ajouter num pins)
-const int rightservo = x;
-const int leftservo = x;
+const int rightservo = 0;
+const int leftservo = 1;
 
 //LEDs (ajouter num pins)
-const int redlight = x;
-const int yellowlight = x;
-const int greenlight = x;
-const int bluelight = x;
+const int redlight =0 ;
+const int yellowlight = 0;
+const int greenlight = 0;
+const int bluelight = 0;
 
 // Setup
 void SetupLEDS();
