@@ -5,6 +5,11 @@
 #include "Allfunctions.h"
 #include <librobus.h>
 
+bool redLedOn = false;
+bool greenLedOn = false;
+bool blueLedOn = false;
+bool yellowLedOn = false;
+
 
 void SetupLEDS() {
     pinMode(redlight, OUTPUT);
@@ -15,13 +20,17 @@ void SetupLEDS() {
 
 void InitServosArms() {
     SERVO_Enable(0);
-    SERVO_Enable(1);}
+    SERVO_Enable(1);
+    delay(300);
+    LArmLow();
+    RArmLow();
+}
 
 //Arms high
 void LArmHigh() {
     SERVO_SetAngle(0, 180);}
 void RArmHigh() {
-    SERVO_SetAngle(1, 180);}
+    SERVO_SetAngle(1, 0);}
 
 //Arms straight
 void LArmStraight() {
@@ -33,71 +42,135 @@ void RArmStraight() {
 void LArmLow() {
     SERVO_SetAngle(0, 0);}
 void RArmLow() {
-    SERVO_SetAngle(1, 0);}
+    SERVO_SetAngle(1, 180);}
 
 //Turn LEDs on
 void RedLEDOn() {
-    digitalWrite(redlight,HIGH);}
+    digitalWrite(redlight,HIGH);
+    redLedOn = true;
+}
 void YellowLEDOn() {
-    digitalWrite(yellowlight,HIGH);}
+    digitalWrite(yellowlight,HIGH);
+    yellowLedOn = true;
+}
 void GreenLEDOn() {
-    digitalWrite(greenlight,HIGH);}
+    digitalWrite(greenlight,HIGH);
+    greenLedOn = true;
+}
 void BlueLEDOn() {
-    digitalWrite(bluelight,HIGH);}
+    digitalWrite(bluelight,HIGH);
+    blueLedOn = true;
+}
 
 //Turn LEDs off
 void RedLEDOff() {
-    digitalWrite(redlight,LOW);}
+    digitalWrite(redlight,LOW);
+    redLedOn = false;
+}
 void YellowLEDOff() {
-    digitalWrite(yellowlight,LOW);}
+    digitalWrite(yellowlight,LOW);
+    yellowLedOn = false;
+}
 void GreenLEDOff() {
-    digitalWrite(greenlight,LOW);}
+    digitalWrite(greenlight,LOW);
+    greenLedOn = false;
+}
 void BlueLEDOff() {
-    digitalWrite(bluelight,LOW);}
+    digitalWrite(bluelight,LOW);
+    blueLedOn = false;
+}
+
+
+//TRIGGERs
+void RedLEDTrigger() {
+    if (redLedOn)
+        digitalWrite(redlight,LOW);
+    else
+        digitalWrite(redlight, HIGH);
+    redLedOn = !redLedOn;
+
+}
+void YellowLEDTrigger() {
+    if (yellowLedOn)
+        digitalWrite(yellowlight,LOW);
+    else
+        digitalWrite(yellowlight, HIGH);
+    yellowLedOn = !yellowLedOn;
+}
+void GreenLEDTrigger() {
+    if (greenLedOn)
+        digitalWrite(greenlight,LOW);
+    else
+        digitalWrite(greenlight, HIGH);
+    greenLedOn = !greenLedOn;
+}
+void BlueLEDTrigger() {
+    if (blueLedOn)
+        digitalWrite(bluelight,LOW);
+    else
+        digitalWrite(bluelight, HIGH);
+    blueLedOn = !blueLedOn;
+}
 
 
 //Random LEDs
 void RandomLEDs() {
-    long RanNum = random(0,9);
-
-    RedLEDOff(); //Turn off all LEDs
-    YellowLEDOff();
-    GreenLEDOff();
-    BlueLEDOff();
+    long RanNum = random(0,10);
 
     if (RanNum == 0){ //Randomize LEDs on
-        RedLEDOn();}
+        RedLEDTrigger();
+    }
 
     if (RanNum == 1){
-        YellowLEDOn();}
+        YellowLEDTrigger();
+    }
 
     if (RanNum == 2){
-        GreenLEDOn();}
+        GreenLEDTrigger();
+    }
 
     if (RanNum == 3){
-        BlueLEDOn();}
+        BlueLEDTrigger();
+    }
 
     if (RanNum == 4){
-        RedLEDOn();
-        YellowLEDOn();}
+        RedLEDTrigger();
+        YellowLEDTrigger();
+    }
 
     if (RanNum == 5){
-        RedLEDOn();
-        GreenLEDOn();}
+        RedLEDTrigger();
+        GreenLEDTrigger();
+    }
 
     if (RanNum == 6){
-        RedLEDOn();
-        BlueLEDOn();}
+        RedLEDTrigger();
+        BlueLEDTrigger();
+    }
 
     if (RanNum == 7){
-        YellowLEDOn();
-        GreenLEDOn();}
+        YellowLEDTrigger();
+        GreenLEDTrigger();
+    }
 
     if (RanNum == 8){
-        YellowLEDOn();
-        BlueLEDOn();}
+        YellowLEDTrigger();
+        BlueLEDTrigger();
+    }
 
     if (RanNum == 9){
-        GreenLEDOn();
-        BlueLEDOn();}
+        GreenLEDTrigger();
+        BlueLEDTrigger();
+    }
+}
+
+void CloseAllLeds() {
+    if (redLedOn)
+        RedLEDOff();
+    if (yellowLedOn)
+        YellowLEDOff();
+    if (greenLedOn)
+        GreenLEDOff();
+    if (blueLedOn)
+        BlueLEDOff();
 }

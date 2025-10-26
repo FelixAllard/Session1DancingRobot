@@ -15,6 +15,11 @@ const int yellowlight = 0;
 const int greenlight = 0;
 const int bluelight = 0;
 
+extern bool redLedOn;
+extern bool yellowLedOn;
+extern bool greenLedOn;
+extern bool blueLedOn;
+
 // Setup
 void SetupLEDS();
 void InitServosArms();
@@ -43,6 +48,8 @@ void BlueLEDOff();
 
 //Randomize LEDs
 void RandomLEDs();
+
+void CloseAllLeds();
 
 
 
