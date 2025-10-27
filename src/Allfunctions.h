@@ -4,6 +4,11 @@
 
 #ifndef SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
 #define SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
+#define WHEEL_BASE   0.20f    // distance entre les roues (m)
+#define WHEEL_RADIUS 0.0385f  // rayon des roues (m)
+#define RAYON        0.80f    // rayon du demi-cercle (m)
+#define DUREE        4.0f     // secondes par demi-cercle
+
 
 //Servomotors (ajouter num pins)
 const int rightservo = 0;
@@ -57,7 +62,20 @@ void RandomLEDs();
 
 void CloseAllLeds();
 
+// Variables for switching places
+extern const float R_WHEEL;
+extern const float L_AXLE;
+extern const float R_TRAJ;
+extern const float T_TRAJ;
 
+
+void initTrajectoireDemiCercle();
+void loopTrajectoireDemiCercle();
+
+
+float getEncoderSpeedLeft();
+float getEncoderSpeedRight();
+void  setMotorSpeeds(float leftPWM, float rightPWM);
 
 #endif //SESSION1DANCINGROBOT_ALLFUNCTIONSA_H
 
