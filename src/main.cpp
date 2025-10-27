@@ -202,7 +202,7 @@ void sequence() {
     RArmLow();
     while (millis() - startTime < 4000) {
         // POSITION 1:
-        // Advance _
+        // Advance 20cm
 
     }
 
@@ -247,7 +247,7 @@ void sequence() {
     RedLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 1:
-        // Advance _
+        // Advance 20cm
 
 
         delay(100);
@@ -317,7 +317,7 @@ void sequence() {
     RedLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 1:
-        // Advance _
+        // Advance 20cm
         delay(100);
     }
 
@@ -374,7 +374,7 @@ void sequence() {
     RArmStraight();
     while (millis() - startTime < 4000) {
         // POSITION 1:
-        // Advance _
+        // Advance 20cm
         delay(100);
     }
 
@@ -618,9 +618,8 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 0:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 20cm
         // Turn 180 horaire (back in position, initial facing)
-        // Advance _
         RandomLEDs();
         delay(100);
     }
