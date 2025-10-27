@@ -174,3 +174,20 @@ void CloseAllLeds() {
     if (blueLedOn)
         BlueLEDOff();
 }
+
+
+// Param du robot
+const float Rayon_Roue = 0.0;      // roues de ?? cm de rayon
+const float Dist_chRoue  = 0.0;      // ?? cm  entre ch roue
+const float Rayon_TRAJ  = 0.80;      // 80 cm trajectory radius
+const float Temps_TRAJ  = 8.0;       // 8 seconds for half-circle
+
+// Param de vitesse
+float vRobot ;
+float vAngulaireRobot ;
+float vRoueG, vRoueD ;
+
+// Initialiser encodeurs
+float vraievRoueG = 0, vraievroueD = 0;
+
+
