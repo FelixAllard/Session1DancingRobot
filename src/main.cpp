@@ -2,6 +2,8 @@
 #include <Allfunctions.h>
 #include <librobus.h>
 
+#include "Rotation.h"
+
 unsigned long startTime = 0;
 
 void setup() {
@@ -113,7 +115,9 @@ void sequence() {
     CloseAllLeds();
     LArmHigh();
     RArmHigh();
+    InitializeMovement(360,100);
     while (millis() - startTime < 4000) {
+        DoMovementIteration();
         RandomLEDs();
         delay(100);
     }
@@ -178,8 +182,9 @@ void sequence() {
     CloseAllLeds();
     LArmStraight();
     RArmStraight();
+    InitializeMovement(-360,100);
     while (millis() - startTime < 4000) {
-        // 360 anti-horaire
+        DoMovementIteration();
         RandomLEDs();
         delay(100);
     }
@@ -217,7 +222,7 @@ void sequence() {
         // POSITION 1;
 
 
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 2 + YellowLEDOn
@@ -225,7 +230,7 @@ void sequence() {
     YellowLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 2;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 3 + GreenLEDOn
@@ -233,7 +238,7 @@ void sequence() {
     GreenLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 3;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 4 + BlueLEDOn
@@ -241,7 +246,7 @@ void sequence() {
     BlueLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 4;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 0 +RedLEDOn+YellowLEDOn+GreenLEDOn+BlueLEDOn
@@ -251,17 +256,18 @@ void sequence() {
     GreenLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 0;
-        delay(500);
+        delay(100);
     }
 
     //TODO 720 horaire
     startTime = millis();    // 720 horaire + RandomLEDs
     CloseAllLeds();
+    InitializeMovement(720,100);
     while (millis() - startTime < 4000) {
-        // 720 horaire
+        DoMovementIteration();
         RandomLEDs();
 
-        delay(500);
+        delay(100);
     }
     CloseAllLeds();
 
@@ -274,7 +280,7 @@ void sequence() {
     RedLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 1;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 2 + YellowLEDOn
@@ -282,7 +288,7 @@ void sequence() {
     YellowLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 2;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 3 + GreenLEDOn
@@ -290,7 +296,7 @@ void sequence() {
     GreenLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 3;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 4 + BlueLEDOn
@@ -299,7 +305,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 4;
 
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 0 + RandomLEDs
@@ -331,7 +337,7 @@ void sequence() {
     RArmHigh();
     while (millis() - startTime < 4000) {
         // POSITION 2;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 3 + GreenLEDOn + LArmLow + RArmLow
@@ -341,7 +347,7 @@ void sequence() {
     RArmLow();
     while (millis() - startTime < 4000) {
         // POSITION 3;
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 4 + BlueLEDOn + LArmStraight + RArmStraight
@@ -364,191 +370,176 @@ void sequence() {
     }
 
     startTime = millis();    // POSITION 2 + LArmHigh + RArmStraight
+    LArmHigh();
+    RArmStraight();
     while (millis() - startTime < 4000) {
         // POSITION 2;
-        LArmHigh();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 3 + LArmStraight + RArmStraight
+    LArmStraight();
+    RArmStraight();
     while (millis() - startTime < 4000) {
         // POSITION 3;
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 4 + LArmStraight + RArmHigh
+
+    LArmStraight();
+    RArmHigh();
     while (millis() - startTime < 4000) {
         // POSITION 4;
-        LArmStraight();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     //SIXIEME CHANSON- FAIRE ATTENTION AUX DÉLAIS CAR CEST PAS LES BONS!!!--------------------------------------------------------------------
 
     startTime = millis();    // POSITION 1 + RandomLEDs + LArmHigh + RArmHigh
+    RandomLEDs();
+    LArmHigh();
+    RArmHigh();
     while (millis() - startTime < 2000) {
         // POSITION 1;
-        RandomLEDs();
-        LArmHigh();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+    RandomLEDs();
+    LArmHigh();
+    RArmStraight();
     while (millis() - startTime < 2000) {
         // POSITION 2;
-        RandomLEDs();
-        LArmHigh();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 3 + RandomLEDs + LArmStraight + RArmStraight
+    RandomLEDs();
+    LArmStraight();
+    RArmStraight();
     while (millis() - startTime < 2000) {
         // POSITION 3;
-        RandomLEDs();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+    RandomLEDs();
+    LArmStraight();
+    RArmHigh();
     while (millis() - startTime < 2000) {
         // POSITION 4;
-        RandomLEDs();
-        LArmStraight();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     for (int i=1;i<=2;i++) { // 2 fois la meme chose
         startTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+        LArmHigh();
+        RArmHigh();
+        InitializeMovement(360,100);
         while (millis() - startTime < 2000) {
             // POSITION 1;
-            //360 horaire;
+            DoMovementIteration();
             RandomLEDs();
-            LArmHigh();
-            RArmHigh();
-
-            delay(500);
+            delay(100);
         }
 
         startTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+        LArmHigh();
+        RArmStraight();
         while (millis() - startTime < 2000) {
             // POSITION 2;
             RandomLEDs();
-            LArmHigh();
-            RArmStraight();
-
-            delay(500);
+            delay(100);
         }
 
         startTime = millis();    // POSITION 3 + RandomLEDs + LArmStraight + RArmStraight
+        LArmStraight();
+        RArmStraight();
         while (millis() - startTime < 2000) {
             // POSITION 3;
             RandomLEDs();
-            LArmStraight();
-            RArmStraight();
-
-            delay(500);
+            delay(100);
         }
 
         startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+        LArmStraight();
+        RArmHigh();
         while (millis() - startTime < 2000) {
             // POSITION 4;
             RandomLEDs();
-            LArmStraight();
-            RArmHigh();
-
-            delay(500);
+            delay(100);
         }
 
     }
 
     startTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+    LArmHigh();
+    RArmHigh();
+    InitializeMovement(360,100);
     while (millis() - startTime < 2000) {
         // POSITION 1;
-        //360 horaire;
+        DoMovementIteration();
         RandomLEDs();
-        LArmHigh();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+    LArmHigh();
+    RArmStraight();
     while (millis() - startTime < 2000) {
         // POSITION 2;
         RandomLEDs();
-        LArmHigh();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 3 + RandomLEDs + 360 horaire + LArmStraight + RArmStraight
+    LArmStraight();
+    RArmStraight();
+    InitializeMovement(360,100);
     while (millis() - startTime < 2000) {
         // POSITION 3;
-        // 360 horaire
+        DoMovementIteration();
         RandomLEDs();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+    LArmStraight();
+    RArmHigh();
     while (millis() - startTime < 2000) {
         // POSITION 4;
         RandomLEDs();
-        LArmStraight();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+    LArmHigh();
+    RArmHigh();
+    InitializeMovement(360,100);
     while (millis() - startTime < 2000) {
         // POSITION 1;
-        //360 horaire;
+        DoMovementIteration();
         RandomLEDs();
-        LArmHigh();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 0 + RandomLEDs
+    LArmLow();
+    RArmLow();
     while (millis() - startTime < 2000) {
-        LArmLow();
-        RArmLow();
         // POSITION 0;
         RandomLEDs();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // 1080 horaire
+    InitializeMovement(1080,100);
     while (millis() - startTime < 2000) {
-        // 1080 horaire;
-
-        delay(500);
+        DoMovementIteration();
+        delay(100);
     }
 
-    RedLEDOff();
-    YellowLEDOff();
-    GreenLEDOff();
-    BlueLEDOff();
+    CloseAllLeds();
 
 }
