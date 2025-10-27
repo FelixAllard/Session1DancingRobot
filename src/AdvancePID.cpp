@@ -3,11 +3,25 @@
 //
 
 #include "AdvancePID.h"
-
+#include "LibRobus.h"
 #define SYNC_KP 0.10f
 #define SYNC_KP_POS 0.05f
 
 
+
+//1 = white board , 2 = transparent board
+const int ROBOT_NUMBER = 1;
+
+float motorBias_Base[2] = {1.0f, 1.0f};  // default
+
+void SetMotorBias() {
+    if (ROBOT_NUMBER ==1) {
+        motorBias_Base[1] = 1.0161;
+    }
+    else if (ROBOT_NUMBER == 2) {
+        motorBias_Base[1] = 1.0350f;
+    }
+}
 
 
 PID motorPID[2];                   // PID controllers for each motor
@@ -37,7 +51,7 @@ void ResetPIDState() {
     }
 }
 
-void AdvanceDistance(float distanceMeters, float fractionSpeed) {
+void InitAdvanceDistance(float distanceMeters, float fractionSpeed) {
     // Clamp target speed
     fractionSpeed = clampf(fractionSpeed, 0.0f, 2.2f);
 
@@ -63,7 +77,7 @@ void AdvanceDistance(float distanceMeters, float fractionSpeed) {
     float currentSpeedRef = 0.0f;      // internal target used by PID
     const float step = 0.25f;          // how fast we "snap" toward target (not full accel)
 
-    while (true) {
+    void DoAdvanceMotion(){
         unsigned long now = millis();
         if (now - lastUpdate >= SampleMs) {
             lastUpdate = now;
