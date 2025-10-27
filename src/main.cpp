@@ -14,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-    RArmHigh();
+    Serial.println("HELLOWORLD");
 }
 
 
@@ -26,223 +26,172 @@ void sequence() {
     //PREMIERE CHANSON----------------------------------------------------------
 
     startTime = millis();//Snapshot of current time, attente
-    while (millis() - startTime < 8000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
-        LArmLow();
-        RArmLow();
-        RedLEDOff();
-        YellowLEDOff();
-        GreenLEDOff();
-        BlueLEDOff();
-
-        delay(500);
-    }
-
-    startTime = millis();    // LArmHigh
-    while (millis() - startTime < 2000) {
-        LArmHigh();
-
-        delay(500);
-    }
-
-    startTime = millis();    // LArmHigh + RArmHigh
-    while (millis() - startTime < 2000) {
-        RArmHigh();
-
-        delay(500);
-    }
-
-    startTime = millis();    // LArmLow + RArmHigh
-    while (millis() - startTime < 2000) {
-        LArmLow();
-
-        delay(500);
-    }
-
-    startTime = millis();    // LArmLow + RArmLow for 18 seconds
-    while (millis() - startTime < 18000) {
-        RArmLow();
-
-        delay(500);
-    }
-
-    startTime = millis();    // RedLEDOn
-    while (millis() - startTime < 2000) {
-        RedLEDOn();
-
-        delay(500);
-    }
-
-    startTime = millis();    // YellowLEDOn
-    while (millis() - startTime < 2000) {
-        RedLEDOff();
-
-        YellowLEDOn();
-
-        delay(500);
-    }
-
-    startTime = millis();    // GreenLEDOn
-    while (millis() - startTime < 2000) {
-        YellowLEDOff();
-
-        GreenLEDOn();
-
-        delay(500);
-    }
-
-    startTime = millis();    // BlueLEDOn
-    while (millis() - startTime < 2000) {
-        GreenLEDOff();
-
-        BlueLEDOn();
-
-        delay(500);
-    }
-
-
-    startTime = millis();    // RedLEDOn + LArmStraight + RArmStraight
-    while (millis() - startTime < 2000) {
-        BlueLEDOff();
-
-        RedLEDOn();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
-    }
-
-    startTime = millis();    // YellowLEDOn + LArmHigh + RArmHigh
-    while (millis() - startTime < 2000) {
-        RedLEDOff();
-
-        YellowLEDOn();
-        LArmHigh();
-        RArmHigh();
-
-        delay(500);
-    }
-
-    startTime = millis();    // GreenLEDOn + LArmStraight + RArmStraight
-    while (millis() - startTime < 2000) {
-        YellowLEDOff();
-
-        GreenLEDOn();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
-    }
-
-    startTime = millis();    // BlueLEDOn + LArmLow + RArmLow
-    while (millis() - startTime < 2000) {
-        GreenLEDOff();
-
-        BlueLEDOn();
-        LArmLow();
-        RArmLow();
-
-        delay(500);
-    }
-
-    startTime = millis();    // 360 horaire + RandomLEDs + LArmHigh + RArmHigh
-    while (millis() - startTime < 4000) {
-        // 360 horaire
-        BlueLEDOff();
-
-        RandomLEDs();
-        LArmHigh();
-        RArmHigh();
-
-        delay(500);
-    }
-
+    LArmLow();
+    RArmLow();
     RedLEDOff();
     YellowLEDOff();
     GreenLEDOff();
     BlueLEDOff();
+    while (millis() - startTime < 8000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
+
+    }
+
+    startTime = millis();    // LArmHigh
+    LArmHigh();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // LArmHigh + RArmHigh
+    CloseAllLeds();
+    LArmHigh();
+    RArmHigh();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // LArmLow + RArmHigh
+    CloseAllLeds();
+    LArmLow();
+    RArmHigh();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // LArmLow + RArmLow for 18 seconds
+    CloseAllLeds();
+    RArmLow();
+    LArmLow();
+    while (millis() - startTime < 18000) {}
+
+    startTime = millis();
+    CloseAllLeds();
+    RedLEDOn();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // YellowLEDOn
+    CloseAllLeds();
+    YellowLEDOn();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // GreenLEDOn
+    GreenLEDOn();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // BlueLEDOn
+    CloseAllLeds();
+    BlueLEDOn();
+    while (millis() - startTime < 2000) {}
+
+
+    startTime = millis();    // RedLEDOn + LArmStraight + RArmStraight
+    CloseAllLeds();
+    RedLEDOn();
+    LArmStraight();
+    RArmStraight();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // YellowLEDOn + LArmHigh + RArmHigh
+    CloseAllLeds();
+    YellowLEDOn();
+    LArmHigh();
+    RArmHigh();
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // GreenLEDOn + LArmStraight + RArmStraight
+    CloseAllLeds();
+    GreenLEDOn();
+    LArmStraight();
+    RArmStraight();
+
+    while (millis() - startTime < 2000) {}
+
+    startTime = millis();    // BlueLEDOn + LArmLow + RArmLow
+    CloseAllLeds();
+    BlueLEDOn();
+    LArmLow();
+    RArmLow();
+    while (millis() - startTime < 2000) {}
+
+    //TODO 360
+    startTime = millis();    // 360 horaire + RandomLEDs + LArmHigh + RArmHigh
+    CloseAllLeds();
+    LArmHigh();
+    RArmHigh();
+    while (millis() - startTime < 4000) {
+        RandomLEDs();
+        delay(100);
+    }
+
 
     startTime = millis();     // Alternated RedLEDOn/YellowLEDOn + LArmLow + RArmLow
+    CloseAllLeds();
+    LArmLow();
+    RArmLow();
     while (millis() - startTime < 2000) {
-        LArmLow();
-        RArmLow();
         RedLEDOn();
         YellowLEDOff();
-
         delay(100);
-
         RedLEDOff();
         YellowLEDOn();
-
         delay(100);
     }
 
     startTime = millis();     // Alternated YellowLEDOn/GreenLEDOn
+    CloseAllLeds();
     while (millis() - startTime < 2000) {
+        //---Yellow On---
         YellowLEDOn();
         GreenLEDOff();
-
         delay(100);
-
+        //---Green On---
         YellowLEDOff();
         GreenLEDOn();
-
         delay(100);
     }
 
 
     startTime = millis();     // Alternated GreenLEDOn/BlueLEDOn
+    CloseAllLeds();
     while (millis() - startTime < 2000) {
+        //---Green on---
         GreenLEDOn();
         BlueLEDOff();
-
         delay(100);
-
+        //---Blue On---
         GreenLEDOff();
         BlueLEDOn();
-
         delay(100);
     }
 
     startTime = millis();    // Alternated BlueLEDOn/RedLEDOn
+    CloseAllLeds();
     while (millis() - startTime < 2000) {
+        //---Blue on ---
         BlueLEDOn();
         RedLEDOff();
-
         delay(100);
-
+        //---Red On---
         BlueLEDOff();
         RedLEDOn();
-
         delay(100);
     }
 
-    RedLEDOff();
 
+    //TODO 360 AntiHoraire
     startTime = millis();    // 360 antihoraire + RandomLEDs + LArmStraight + RArmStraight
+    CloseAllLeds();
+    LArmStraight();
+    RArmStraight();
     while (millis() - startTime < 4000) {
         // 360 anti-horaire
         RandomLEDs();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
-
-    RedLEDOff();
-    YellowLEDOff();
-    GreenLEDOff();
-    BlueLEDOff();
-
 
     //DEUXIEME CHANSON----------------------------------------------------------------
 
+    //TODO Position 1
     startTime = millis();    // Position 1 + LArmLow + RArmLow
+    CloseAllLeds();
+    LArmLow();
+    RArmLow();
     while (millis() - startTime < 4000) {
         // POSITION 1;
-        LArmLow();
-        RArmLow();
-
-        delay(500);
     }
 
     // POSITION 2
@@ -260,171 +209,157 @@ void sequence() {
     //TROISIEME CHANSON-----------------------------------------------------------------
 
     // Changement place en bas avk P-07 (-1) 8sec
-
+    //TODO Position 1;
     startTime = millis();    // POSITION 1 + RedLEDOn
+    RedLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 1;
-        RedLEDOn();
+
 
         delay(500);
     }
 
     startTime = millis();    // POSITION 2 + YellowLEDOn
+    CloseAllLeds();
+    YellowLEDOn();
     while (millis() - startTime < 4000) {
-        RedLEDOff();
         // POSITION 2;
-        YellowLEDOn();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 3 + GreenLEDOn
+    CloseAllLeds();
+    GreenLEDOn();
     while (millis() - startTime < 4000) {
-        YellowLEDOff();
         // POSITION 3;
-        GreenLEDOn();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 4 + BlueLEDOn
+    CloseAllLeds();
+    BlueLEDOn();
     while (millis() - startTime < 4000) {
-        GreenLEDOff();
         // POSITION 4;
-        BlueLEDOn();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 0 +RedLEDOn+YellowLEDOn+GreenLEDOn+BlueLEDOn
+    CloseAllLeds();
+    RedLEDOn();
+    YellowLEDOn();
+    GreenLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 0;
-        RedLEDOn();
-        YellowLEDOn();
-        GreenLEDOn();
-
         delay(500);
     }
 
+    //TODO 720 horaire
     startTime = millis();    // 720 horaire + RandomLEDs
+    CloseAllLeds();
     while (millis() - startTime < 4000) {
         // 720 horaire
         RandomLEDs();
 
         delay(500);
     }
-
-    RedLEDOff();
-    YellowLEDOff();
-    GreenLEDOff();
-    BlueLEDOff();
-
+    CloseAllLeds();
 
     //QUATRIEME CHANSON-------------------------------------------------------------------
 
     // Retour changement place en haut avk P-07 (+1) 8 sec
 
     startTime = millis();    // POSITION 1 + RedLEDOn
+    CloseAllLeds();
+    RedLEDOn();
     while (millis() - startTime < 4000) {
         // POSITION 1;
-        RedLEDOn();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 2 + YellowLEDOn
+    CloseAllLeds();
+    YellowLEDOn();
     while (millis() - startTime < 4000) {
-        RedLEDOff();
         // POSITION 2;
-        YellowLEDOn();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 3 + GreenLEDOn
+    CloseAllLeds();
+    GreenLEDOn();
     while (millis() - startTime < 4000) {
-        YellowLEDOff();
         // POSITION 3;
-        GreenLEDOn();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 4 + BlueLEDOn
+    CloseAllLeds();
+    BlueLEDOn();
     while (millis() - startTime < 4000) {
-        GreenLEDOff();
         // POSITION 4;
-        BlueLEDOn();
 
         delay(500);
     }
 
     startTime = millis();    // POSITION 0 + RandomLEDs
+    CloseAllLeds();
     while (millis() - startTime < 4000) {
-        BlueLEDOff();
         // POSITION 0;
         RandomLEDs();
 
-        delay(500);
+        delay(100);
     }
 
-    RedLEDOff();
-    YellowLEDOff();
-    GreenLEDOff();
-    BlueLEDOff();
+    CloseAllLeds();
 
     //CINQUIEME CHANSON-------------------------------------------------------------------
     startTime = millis();    // POSITION 1 + RedLEDOn + LArmStraight + RArmStraight
+    CloseAllLeds();
+    RedLEDOn();
+    LArmStraight();
+    RArmStraight();
     while (millis() - startTime < 4000) {
         // POSITION 1;
-        RedLEDOn();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 2 + YellowLEDOn + LArmHigh + RArmHigh
+    CloseAllLeds();
+    YellowLEDOn();
+    LArmHigh();
+    RArmHigh();
     while (millis() - startTime < 4000) {
-        RedLEDOff();
         // POSITION 2;
-        YellowLEDOn();
-        LArmHigh();
-        RArmHigh();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 3 + GreenLEDOn + LArmLow + RArmLow
+    CloseAllLeds();
+    GreenLEDOn();
+    LArmLow();
+    RArmLow();
     while (millis() - startTime < 4000) {
-        YellowLEDOff();
         // POSITION 3;
-        GreenLEDOn();
-        LArmLow();
-        RArmLow();
-
         delay(500);
     }
 
     startTime = millis();    // POSITION 4 + BlueLEDOn + LArmStraight + RArmStraight
+    CloseAllLeds();
+    BlueLEDOn();
+    LArmStraight();
+    RArmStraight();
     while (millis() - startTime < 4000) {
-        GreenLEDOff();
         // POSITION 4;
-        BlueLEDOn();
-        LArmStraight();
-        RArmStraight();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 1 + LArmHigh + RArmHigh
+    CloseAllLeds();
+    LArmHigh();
+    RArmHigh();
     while (millis() - startTime < 4000) {
-        BlueLEDOff();
         // POSITION 1;
-        LArmHigh();
-        RArmHigh();
-
-        delay(500);
+        delay(100);
     }
 
     startTime = millis();    // POSITION 2 + LArmHigh + RArmStraight
