@@ -81,8 +81,6 @@ void InitAdvanceDistance(float distanceMeters, float fracSpeed) {
 
 
 
-
-
 void DoAdvanceMotion(){
     unsigned long now = millis();
     if (now - lastUpdate >= SampleMs) {
@@ -115,11 +113,7 @@ void DoAdvanceMotion(){
 
     MOTOR_SetSpeed(0, 0.0f);
     MOTOR_SetSpeed(1, 0.0f);
-
 }
-
-
-
 
 
 void PID_ControlMotors(float targetSpeed) {
