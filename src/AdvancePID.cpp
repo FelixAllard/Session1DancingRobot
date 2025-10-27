@@ -29,7 +29,6 @@ long lastCountEncoder[2] = {0, 0}; // last encoder readings
 long totalCountEncoder[2] = {0, 0}; // total encoder counts (for sync)
 
 
-static bool rampUp = true;
 static const float INTEGRAL_MAX = 10.0f; // anti-windup limit
 
 
@@ -52,14 +51,17 @@ void ResetPIDState() {
 }
 unsigned long lastUpdate = millis();
 float currentSpeedRef = 0.0f;      // internal target used by PID
-const float step = 0.25f;          // how fast we "snap" toward target (not full accel)
-void InitAdvanceDistance(float distanceMeters, float fractionSpeed) {
+float step = 0.25f;          // how fast we "snap" toward target (not full accel)
+long targetPulses;
+float fractionSpeed ;
+
+void InitAdvanceDistance(float distanceMeters, float fracSpeed) {
     // Clamp target speed
-    fractionSpeed = clampf(fractionSpeed, 0.0f, 2.2f);
+    fractionSpeed = clampf(fracSpeed, 0.0f, 2.2f);
 
     // Convert distance to encoder pulses
     const float wheelRadius = 0.0385f;
-    long targetPulses = (long)((distanceMeters / (2.0f * 3.14159f * wheelRadius)) * PPR);
+    targetPulses = (long)((distanceMeters / (2.0f * 3.14159f * wheelRadius)) * PPR);
 
     // Reset encoders and PID
     ENCODER_Reset(0);
