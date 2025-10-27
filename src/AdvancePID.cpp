@@ -73,31 +73,32 @@ void InitAdvanceDistance(float distanceMeters, float fractionSpeed) {
 
 
 
-     unsigned long lastUpdate = millis();
+    unsigned long lastUpdate = millis();
     float currentSpeedRef = 0.0f;      // internal target used by PID
     const float step = 0.25f;          // how fast we "snap" toward target (not full accel)
+}
 
-    void DoAdvanceMotion(){
-        unsigned long now = millis();
-        if (now - lastUpdate >= SampleMs) {
-            lastUpdate = now;
+void DoAdvanceMotion(){
+    unsigned long now = millis();
+    if (now - lastUpdate >= SampleMs) {
+        lastUpdate = now;
 
-            // --- Gradually move target toward desired speed ---
-            if (currentSpeedRef < fractionSpeed) {
-                currentSpeedRef += step;
-                if (currentSpeedRef > fractionSpeed)
-                    currentSpeedRef = fractionSpeed;
-            }
-
-            // --- PID control ---
-            PID_ControlMotors(currentSpeedRef);
-
-            // --- Check distance ---
-            long avgPulses = (totalCountEncoder[0] + totalCountEncoder[1]) / 2;
-            if (avgPulses >= targetPulses)
-                break;
+        // --- Gradually move target toward desired speed ---
+        if (currentSpeedRef < fractionSpeed) {
+            currentSpeedRef += step;
+            if (currentSpeedRef > fractionSpeed)
+                currentSpeedRef = fractionSpeed;
         }
+
+        // --- PID control ---
+        PID_ControlMotors(currentSpeedRef);
+
+        // --- Check distance ---
+        long avgPulses = (totalCountEncoder[0] + totalCountEncoder[1]) / 2;
+        if (avgPulses >= targetPulses)
+            break;
     }
+
     const float decelStep = 0.10f;   // vitesse de réduction à chaque boucle
     const int decelDelay = 35;       // temps entre les paliers (ms)
 
