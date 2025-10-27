@@ -49,6 +49,7 @@ void ResetPIDState() {
         motorPID[i].lastDerivative = 0.0f;
     }
 }
+//-------------------------------------------------------------------------
 unsigned long lastUpdate = millis();
 float currentSpeedRef = 0.0f;      // internal target used by PID
 float step = 0.25f;          // how fast we "snap" toward target (not full accel)
@@ -73,10 +74,9 @@ void InitAdvanceDistance(float distanceMeters, float fracSpeed) {
     ResetPIDState();
 
     // Slightly smoother PID gains for direct control
-    PIDS_Init(0.63f, 0.07f, 0.05f);
+    PIDS_Init(0.20f, 0.07f, 0.04f);
     lastUpdate = millis();
     currentSpeedRef = 0.0f;
-    step = 0.25f;
 }
 
 
@@ -102,7 +102,7 @@ void DoAdvanceMotion(){
             return;
     }
 
-    const float decelStep = 0.10f;   // vitesse de réduction à chaque boucle
+    const float decelStep = 0.50f;   // vitesse de réduction à chaque boucle
     const int decelDelay = 35;       // temps entre les paliers (ms)
 
 

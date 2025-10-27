@@ -12,7 +12,7 @@ void setup() {
     BoardInit();
     Serial.begin(115200);
     delay(300);
-    InitAdvanceDistance(1);
+    InitAdvanceDistance(0.5f,  0.5f);
     InitServosArms();
     SetupLEDS();
 
@@ -21,7 +21,7 @@ void setup() {
 void loop() {
     Serial.println(" Hello World ");
     DoAdvanceMotion();
-    delay(100);
+    delay(250);
 }
 
 
@@ -201,29 +201,53 @@ void sequence() {
     LArmLow();
     RArmLow();
     while (millis() - startTime < 4000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Advance _
+
     }
 
-    // POSITION 2
-    // POSITION 3
-    // POSITION 4
+    // POSITION 2:
+    // Turn 135 antihoraire
+    // Advance _
 
-    // POSITION 1
-    // POSITION 2
-    // POSITION 3
-    // POSITION 4
+    // POSITION 3:
+    // Turn 90 antihoraire
+    // Advance _
 
-    // POSITION 0
+    // POSITION 4:
+    // Turn 90 antihoraire
+    // Advance _
 
+    // POSITION 1:
+    // Turn 90 antihoraire
+    // Advance _
+
+    // POSITION 2:
+    // Turn 90 antihoraire
+    // Advance _
+
+    // POSITION 3:
+    // Turn 90 antihoraire
+    // Advance _
+
+    // POSITION 4:
+    // Turn 90 antihoraire
+    // Advance _
+
+    // POSITION 0:
+    // Turn 135 antihoraire
+    // Advance _
+    // Turn 90 horaire (back in position, initial facing)
 
     //TROISIEME CHANSON-----------------------------------------------------------------
 
     // Changement place en bas avk P-07 (-1) 8sec
-    //TODO Position 1;
+    //TODO POSITION 1
     startTime = millis();    // POSITION 1 + RedLEDOn
     RedLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Advance _
 
 
         delay(100);
@@ -233,7 +257,9 @@ void sequence() {
     CloseAllLeds();
     YellowLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 2;
+        // POSITION 2:
+        // Turn 135 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -241,7 +267,9 @@ void sequence() {
     CloseAllLeds();
     GreenLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 3;
+        // POSITION 3:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -249,7 +277,9 @@ void sequence() {
     CloseAllLeds();
     BlueLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 4;
+        // POSITION 4:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -259,7 +289,10 @@ void sequence() {
     YellowLEDOn();
     GreenLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 0;
+        // POSITION 0:
+        // Turn 135 antihoraire
+        // Advance _
+        // Turn 90 horaire (back in position, initial facing)
         delay(100);
     }
 
@@ -283,7 +316,8 @@ void sequence() {
     CloseAllLeds();
     RedLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Advance _
         delay(100);
     }
 
@@ -291,7 +325,9 @@ void sequence() {
     CloseAllLeds();
     YellowLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 2;
+        // POSITION 2:
+        // Turn 135 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -299,7 +335,9 @@ void sequence() {
     CloseAllLeds();
     GreenLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 3;
+        // POSITION 3:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -307,7 +345,9 @@ void sequence() {
     CloseAllLeds();
     BlueLEDOn();
     while (millis() - startTime < 4000) {
-        // POSITION 4;
+        // POSITION 4:
+        // Turn 90 antihoraire
+        // Advance _
 
         delay(100);
     }
@@ -315,7 +355,10 @@ void sequence() {
     startTime = millis();    // POSITION 0 + RandomLEDs
     CloseAllLeds();
     while (millis() - startTime < 4000) {
-        // POSITION 0;
+        // POSITION 0:
+        // Turn 135 antihoraire
+        // Advance _
+        // Turn 90 horaire (back in position, initial facing)
         RandomLEDs();
 
         delay(100);
@@ -330,7 +373,8 @@ void sequence() {
     LArmStraight();
     RArmStraight();
     while (millis() - startTime < 4000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Advance _
         delay(100);
     }
 
@@ -340,7 +384,9 @@ void sequence() {
     LArmHigh();
     RArmHigh();
     while (millis() - startTime < 4000) {
-        // POSITION 2;
+        // POSITION 2:
+        // Turn 135 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -350,7 +396,9 @@ void sequence() {
     LArmLow();
     RArmLow();
     while (millis() - startTime < 4000) {
-        // POSITION 3;
+        // POSITION 3:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -360,7 +408,9 @@ void sequence() {
     LArmStraight();
     RArmStraight();
     while (millis() - startTime < 4000) {
-        // POSITION 4;
+        // POSITION 4:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -369,7 +419,9 @@ void sequence() {
     LArmHigh();
     RArmHigh();
     while (millis() - startTime < 4000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -377,7 +429,9 @@ void sequence() {
     LArmHigh();
     RArmStraight();
     while (millis() - startTime < 4000) {
-        // POSITION 2;
+        // POSITION 2:
+        // Turn 135 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -385,7 +439,9 @@ void sequence() {
     LArmStraight();
     RArmStraight();
     while (millis() - startTime < 4000) {
-        // POSITION 3;
+        // POSITION 3:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -394,7 +450,9 @@ void sequence() {
     LArmStraight();
     RArmHigh();
     while (millis() - startTime < 4000) {
-        // POSITION 4;
+        // POSITION 4:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -405,7 +463,9 @@ void sequence() {
     LArmHigh();
     RArmHigh();
     while (millis() - startTime < 2000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -414,7 +474,9 @@ void sequence() {
     LArmHigh();
     RArmStraight();
     while (millis() - startTime < 2000) {
-        // POSITION 2;
+        // POSITION 2:
+        // Turn 135 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -423,7 +485,9 @@ void sequence() {
     LArmStraight();
     RArmStraight();
     while (millis() - startTime < 2000) {
-        // POSITION 3;
+        // POSITION 3:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -432,7 +496,9 @@ void sequence() {
     LArmStraight();
     RArmHigh();
     while (millis() - startTime < 2000) {
-        // POSITION 4;
+        // POSITION 4:
+        // Turn 90 antihoraire
+        // Advance _
         delay(100);
     }
 
@@ -442,7 +508,9 @@ void sequence() {
         RArmHigh();
         InitializeMovement(360,100);
         while (millis() - startTime < 2000) {
-            // POSITION 1;
+            // POSITION 1:
+            // Turn 90 antihoraire
+            // Advance _
             DoMovementIteration();
             RandomLEDs();
             delay(100);
@@ -452,7 +520,9 @@ void sequence() {
         LArmHigh();
         RArmStraight();
         while (millis() - startTime < 2000) {
-            // POSITION 2;
+            // POSITION 2:
+            // Turn 135 antihoraire
+            // Advance _
             RandomLEDs();
             delay(100);
         }
@@ -461,7 +531,9 @@ void sequence() {
         LArmStraight();
         RArmStraight();
         while (millis() - startTime < 2000) {
-            // POSITION 3;
+            // POSITION 3:
+            // Turn 90 antihoraire
+            // Advance _
             RandomLEDs();
             delay(100);
         }
@@ -470,7 +542,9 @@ void sequence() {
         LArmStraight();
         RArmHigh();
         while (millis() - startTime < 2000) {
-            // POSITION 4;
+            // POSITION 4:
+            // Turn 90 antihoraire
+            // Advance _
             RandomLEDs();
             delay(100);
         }
@@ -482,7 +556,9 @@ void sequence() {
     RArmHigh();
     InitializeMovement(360,100);
     while (millis() - startTime < 2000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Turn 90 antihoraire
+        // Advance _
         DoMovementIteration();
         RandomLEDs();
         delay(100);
@@ -492,7 +568,9 @@ void sequence() {
     LArmHigh();
     RArmStraight();
     while (millis() - startTime < 2000) {
-        // POSITION 2;
+        // POSITION 2:
+        // Turn 135 antihoraire
+        // Advance _
         RandomLEDs();
         delay(100);
     }
@@ -502,7 +580,9 @@ void sequence() {
     RArmStraight();
     InitializeMovement(360,100);
     while (millis() - startTime < 2000) {
-        // POSITION 3;
+        // POSITION 3:
+        // Turn 90 antihoraire
+        // Advance _
         DoMovementIteration();
         RandomLEDs();
         delay(100);
@@ -512,7 +592,9 @@ void sequence() {
     LArmStraight();
     RArmHigh();
     while (millis() - startTime < 2000) {
-        // POSITION 4;
+        // POSITION 4:
+        // Turn 90 antihoraire
+        // Advance _
         RandomLEDs();
         delay(100);
     }
@@ -522,7 +604,9 @@ void sequence() {
     RArmHigh();
     InitializeMovement(360,100);
     while (millis() - startTime < 2000) {
-        // POSITION 1;
+        // POSITION 1:
+        // Turn 90 antihoraire
+        // Advance _
         DoMovementIteration();
         RandomLEDs();
         delay(100);
@@ -532,7 +616,11 @@ void sequence() {
     LArmLow();
     RArmLow();
     while (millis() - startTime < 2000) {
-        // POSITION 0;
+        // POSITION 0:
+        // Turn 135 antihoraire
+        // Advance _
+        // Turn 180 horaire (back in position, initial facing)
+        // Advance _
         RandomLEDs();
         delay(100);
     }
