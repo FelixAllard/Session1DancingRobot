@@ -537,6 +537,7 @@ void sequence() {
     InitializeMovement(1080,100);
     while (millis() - startTime < 2000) {
         DoMovementIteration();
+
         delay(100);
     }
 
