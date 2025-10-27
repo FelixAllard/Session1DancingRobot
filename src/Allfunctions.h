@@ -10,11 +10,17 @@ const int rightservo = 0;
 const int leftservo = 1;
 
 //LEDs (ajouter num pins)
-const int redlight =0 ;
-const int yellowlight = 0;
-const int greenlight = 0;
-const int bluelight = 0;
+const int redlight = 22 ;
+const int yellowlight = 24;
+const int greenlight = 26;
+const int bluelight = 28;
 
+/*
+ *Line sensor
+ *Gauche 30
+ *Milieu 32
+ *Droite 34
+ */
 extern bool redLedOn;
 extern bool yellowLedOn;
 extern bool greenLedOn;
