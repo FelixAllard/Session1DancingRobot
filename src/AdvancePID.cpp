@@ -50,7 +50,9 @@ void ResetPIDState() {
         motorPID[i].lastDerivative = 0.0f;
     }
 }
-
+unsigned long lastUpdate = millis();
+float currentSpeedRef = 0.0f;      // internal target used by PID
+const float step = 0.25f;          // how fast we "snap" toward target (not full accel)
 void InitAdvanceDistance(float distanceMeters, float fractionSpeed) {
     // Clamp target speed
     fractionSpeed = clampf(fractionSpeed, 0.0f, 2.2f);
@@ -70,13 +72,14 @@ void InitAdvanceDistance(float distanceMeters, float fractionSpeed) {
 
     // Slightly smoother PID gains for direct control
     PIDS_Init(0.63f, 0.07f, 0.05f);
-
-
-
-    unsigned long lastUpdate = millis();
-    float currentSpeedRef = 0.0f;      // internal target used by PID
-    const float step = 0.25f;          // how fast we "snap" toward target (not full accel)
+    lastUpdate = millis();
+    currentSpeedRef = 0.0f;
+    step = 0.25f;
 }
+
+
+
+
 
 void DoAdvanceMotion(){
     unsigned long now = millis();
@@ -96,7 +99,7 @@ void DoAdvanceMotion(){
         // --- Check distance ---
         long avgPulses = (totalCountEncoder[0] + totalCountEncoder[1]) / 2;
         if (avgPulses >= targetPulses)
-            break;
+            return;
     }
 
     const float decelStep = 0.10f;   // vitesse de réduction à chaque boucle
