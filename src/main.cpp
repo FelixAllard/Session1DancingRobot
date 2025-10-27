@@ -7,6 +7,7 @@ unsigned long startTime = 0;
 void setup() {
 // write your initialization code here
     BoardInit();
+    Serial.begin(115200);
     delay(300);
     InitServosArms();
     SetupLEDS();
@@ -14,7 +15,7 @@ void setup() {
 }
 
 void loop() {
-    Serial.println("HELLOWORLD");
+    Serial.println(" Hello World ");
 }
 
 
