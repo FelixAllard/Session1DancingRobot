@@ -44,7 +44,7 @@ void InitializePIDStraight(float distance_cm) {
     integral = 0;
 
 }
-void TickPidStraight() {
+bool TickPidStraight() {
     unsigned long now = millis();
     float dt = (now - lastTime) / 1000.0;
     lastTime = now;
@@ -59,6 +59,7 @@ void TickPidStraight() {
     if (abs(error) <= tolerance) {
         MOTOR_SetSpeed(0, 0);
         MOTOR_SetSpeed(1, 0);
+        return true;
     } // stop condition
 
     integral += error * dt;
@@ -83,6 +84,5 @@ void TickPidStraight() {
 
     MOTOR_SetSpeed(0, baseSpeed - correction); // left wheel
     MOTOR_SetSpeed(1, baseSpeed + correction); // right wheel
-
-    delay(10);
+    return false;
 }
