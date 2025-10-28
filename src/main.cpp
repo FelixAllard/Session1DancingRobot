@@ -3,7 +3,9 @@
 #include <librobus.h>
 #include "ArcPID.h"
 #include "Rotation.h"
+
 #include "PIDStraight.h"
+#include "Reposition.h"
 #include "Sequence.h"
 
 
@@ -12,9 +14,11 @@ void setup() {
     BoardInit();
     Serial.begin(115200);
     delay(300);
-
+    InitializeLineSensor();
     InitServosArms();
     SetupLEDS();
+    SynchronizeLeft();
+
     Sequence();
 }
 
