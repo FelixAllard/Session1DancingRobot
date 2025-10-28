@@ -206,35 +206,35 @@ void sequence() {
 
     // POSITION 2:
     // Turn 135 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 3:
     // Turn 90 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 4:
     // Turn 90 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 1:
     // Turn 90 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 2:
     // Turn 90 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 3:
     // Turn 90 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 4:
     // Turn 90 antihoraire
-    // Advance _
+    // Advance 28,28427cm
 
     // POSITION 0:
     // Turn 135 antihoraire
-    // Advance _
+    // Advance 28,28427cm
     // Turn 90 horaire (back in position, initial facing)
 
     //TROISIEME CHANSON-----------------------------------------------------------------
@@ -257,7 +257,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 2:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -267,7 +267,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 3:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -277,7 +277,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 4:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -289,7 +289,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 0:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         // Turn 90 horaire (back in position, initial facing)
         delay(100);
     }
@@ -325,7 +325,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 2:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -335,7 +335,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 3:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -345,7 +345,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 4:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
 
         delay(100);
     }
@@ -355,7 +355,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 0:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         // Turn 90 horaire (back in position, initial facing)
         RandomLEDs();
 
@@ -384,7 +384,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 2:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -396,7 +396,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 3:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -408,7 +408,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 4:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -419,7 +419,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 1:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -429,7 +429,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 2:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -439,7 +439,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 3:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -450,7 +450,7 @@ void sequence() {
     while (millis() - startTime < 4000) {
         // POSITION 4:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -463,7 +463,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 1:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -474,7 +474,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 2:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -485,7 +485,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 3:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -496,7 +496,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 4:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         delay(100);
     }
 
@@ -508,7 +508,7 @@ void sequence() {
         while (millis() - startTime < 2000) {
             // POSITION 1:
             // Turn 90 antihoraire
-            // Advance _
+            // Advance 28,28427cm
             DoMovementIteration();
             RandomLEDs();
             delay(100);
@@ -520,7 +520,7 @@ void sequence() {
         while (millis() - startTime < 2000) {
             // POSITION 2:
             // Turn 135 antihoraire
-            // Advance _
+            // Advance 28,28427cm
             RandomLEDs();
             delay(100);
         }
@@ -531,10 +531,11 @@ void sequence() {
         while (millis() - startTime < 2000) {
             // POSITION 3:
             // Turn 90 antihoraire
-            // Advance _
+            // Advance 28,28427cm
             RandomLEDs();
             delay(100);
         }
+        28,28
 
         startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
         LArmStraight();
@@ -542,7 +543,7 @@ void sequence() {
         while (millis() - startTime < 2000) {
             // POSITION 4:
             // Turn 90 antihoraire
-            // Advance _
+            // Advance 28,28427cm
             RandomLEDs();
             delay(100);
         }
@@ -556,7 +557,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 1:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         DoMovementIteration();
         RandomLEDs();
         delay(100);
@@ -568,7 +569,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 2:
         // Turn 135 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         RandomLEDs();
         delay(100);
     }
@@ -580,7 +581,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 3:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         DoMovementIteration();
         RandomLEDs();
         delay(100);
@@ -592,7 +593,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 4:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         RandomLEDs();
         delay(100);
     }
@@ -604,7 +605,7 @@ void sequence() {
     while (millis() - startTime < 2000) {
         // POSITION 1:
         // Turn 90 antihoraire
-        // Advance _
+        // Advance 28,28427cm
         DoMovementIteration();
         RandomLEDs();
         delay(100);
