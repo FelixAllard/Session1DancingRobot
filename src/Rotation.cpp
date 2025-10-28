@@ -11,7 +11,7 @@
 #define ENCODER_PPR 3000.0f
 #define WHEEL_DIAMETER 7.5f   // cm
 #define WHEELBASE 18.0f       // cm
-float TURN_SPEED = 0.230f  ;    // constant turning speed
+float TURN_SPEED = 0.280f  ;    // constant turning speed
 
 
 unsigned long tickTimer;

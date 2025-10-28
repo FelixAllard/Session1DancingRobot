@@ -32,6 +32,7 @@ long lastError = targetPulses;
 float integral = 0;
 
 void InitializePIDStraight(float distance_cm, float straightSpeed) {
+
     // Reset encoders
     ENCODER_Reset(0);
     ENCODER_Reset(1);

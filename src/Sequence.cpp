@@ -303,6 +303,7 @@ void Song2() {
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
             TickPidStraight();
+        delay(10);
 
     }
 
@@ -315,25 +316,30 @@ void Song2() {
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
             TickPidStraight();
+        delay(10);
     }
     ChangeStep();
 
     sequenceStartTime = millis() ;
     InitializeMovement(-90, 100);
-    InitializePIDStraight(28.28427, 0.4);
+    InitializePIDStraight(28.28427, 0.6);
     while (millis() - sequenceStartTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
+        unsigned long temporary = millis();
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
             TickPidStraight();
+        delay(10-(millis()-temporary));
     }
 
     ChangeStep();
     sequenceStartTime = millis() ;
     InitializeMovement(-135, 100);
-    InitializePIDStraight(20.28427,0.4);
+    InitializePIDStraight(20.28427,0.8);
 
     while (millis() - sequenceStartTime < 4000) {   // POSITION 0 + Turn 135 antihoraire + Advance 28,28427cm
+        unsigned long temporary = millis();
         DoMovementIteration();
+
         if (CheckIfMovementIsFinished())
             if (TickPidStraight()) {
                 if (finished){}
@@ -343,6 +349,7 @@ void Song2() {
                     finished = DoMovementIteration();
                 }
             }
+        delay(10-(millis()-temporary));
 
     }
 }
