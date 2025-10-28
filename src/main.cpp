@@ -18,12 +18,12 @@ void setup() {
     InitServosArms();
     SetupLEDS();
 
-    //Sequence();
-    InitializePIDStraight(100);
+    Sequence();
+    /*InitializePIDStraight(100);
     while (true) {
         TickPidStraight();
         delay(10);
-    }
+    }*/
 }
 
 void loop() {
