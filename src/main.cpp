@@ -2,9 +2,8 @@
 #include <Allfunctions.h>
 #include <librobus.h>
 
-#include "AdvancePID.h"
 #include "Rotation.h"
-
+#include "SimplePID.h"
 unsigned long startTime = 0;
 
 void setup() {
@@ -12,7 +11,7 @@ void setup() {
     BoardInit();
     Serial.begin(115200);
     delay(300);
-    InitAdvanceDistance(0.5f,  0.5f);
+
     InitServosArms();
     SetupLEDS();
 
@@ -20,8 +19,6 @@ void setup() {
 
 void loop() {
     Serial.println(" Hello World ");
-    DoAdvanceMotion();
-    delay(250);
 }
 
 
