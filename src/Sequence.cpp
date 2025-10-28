@@ -11,6 +11,7 @@
 #include "PIDStraight.h"
 
 unsigned long startTime = 0;
+bool finished = false;
 void ChangeStep() {
     RedLEDOn();
     BlueLEDOn();
@@ -141,7 +142,11 @@ void Song1() {
     CloseAllLeds();
     LArmHigh();
     RArmHigh();
-    InitializeMovement(360,100);
+    InitializeMovement(
+        360,
+        100,
+        0.5f
+    );
     while (millis() - startTime < 4000) {
         DoMovementIteration();
         RandomLEDs();
@@ -218,7 +223,7 @@ void Song1() {
     CloseAllLeds();
     LArmStraight();
     RArmStraight();
-    InitializeMovement(-360,100);
+    InitializeMovement(-360,100, 0.5f);
     while (millis() - startTime < 4000) {
         DoMovementIteration();
         RandomLEDs();
@@ -310,7 +315,7 @@ void Song2() {
     startTime = millis() ;
     InitializeMovement(-135, 100);
     InitializePIDStraight(28.28427);
-    bool finished = false;
+
     while (millis() - startTime < 4000) {   // POSITION 0 + Turn 135 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())

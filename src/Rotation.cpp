@@ -11,7 +11,7 @@
 #define ENCODER_PPR 3000.0f
 #define WHEEL_DIAMETER 7.5f   // cm
 #define WHEELBASE 18.0f       // cm
-#define TURN_SPEED 0.30f      // constant turning speed
+float TURN_SPEED = 0.30f  ;    // constant turning speed
 
 
 unsigned long tickTimer;
@@ -41,8 +41,9 @@ static inline float clampf(float v, float lo, float hi) {
 }
 
 
-void InitializeMovement(float degree, int ticksRequired) {
+void InitializeMovement(float degree, int ticksRequired, float speed) {
     ReinitializeMovement();
+    TURN_SPEED = speed;
 
     rotationDegrees = degree;
     if (rotationDegrees >=0)
