@@ -21,7 +21,7 @@ float KdStraight = 0.001;  // Derivative gain
 const float integralMax = 50.0;
 const long tolerance = 20;
 
-unsigned long lastTime = millis();
+unsigned long straightLastTime = millis();
 
 long targetPulses = 0;
 
@@ -46,8 +46,8 @@ void InitializePIDStraight(float distance_cm) {
 }
 bool TickPidStraight() {
     unsigned long now = millis();
-    float dt = (now - lastTime) / 1000.0;
-    lastTime = now;
+    float dt = (now - straightLastTime) / 1000.0;
+    straightLastTime = now;
 
     long left = ENCODER_Read(0);
     long right = ENCODER_Read(1);

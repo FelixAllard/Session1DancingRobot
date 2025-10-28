@@ -5,7 +5,7 @@
 #include "Rotation.h"
 
 #include "PIDStraight.h"
-#include "Reposition.h"
+
 #include "Sequence.h"
 
 
@@ -14,11 +14,16 @@ void setup() {
     BoardInit();
     Serial.begin(115200);
     delay(300);
-    InitializeLineSensor();
+    //InitializeLineSensor();
     InitServosArms();
     SetupLEDS();
 
-    Sequence();
+    //Sequence();
+    InitializePIDStraight(100);
+    while (true) {
+        TickPidStraight();
+        delay(10);
+    }
 }
 
 void loop() {
