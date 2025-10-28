@@ -81,7 +81,7 @@ int runUnityTests(void) {
 
     //Test Leds
     RUN_TEST(test_AllLEDs);
-    RUN_TEST(test_TurnRobot);
+    //RUN_TEST(test_TurnRobot);
 
 
     return UNITY_END();

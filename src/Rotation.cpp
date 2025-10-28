@@ -8,10 +8,10 @@
 #include <stddef.h>
 #include <LibRobus.h>
 
-#define ENCODER_PPR 3250.0f
-#define WHEEL_DIAMETER 7.7f   // cm
+#define ENCODER_PPR 3000.0f
+#define WHEEL_DIAMETER 7.5f   // cm
 #define WHEELBASE 18.0f       // cm
-#define TURN_SPEED 0.10f      // constant turning speed
+#define TURN_SPEED 0.30f      // constant turning speed
 
 
 unsigned long tickTimer;
