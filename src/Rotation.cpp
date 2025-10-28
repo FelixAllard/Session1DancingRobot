@@ -56,7 +56,6 @@ void InitializeMovement(float degree, int ticksRequired) {
     // Reset encoders
     ENCODER_Reset(0);
     ENCODER_Reset(1);
-
     // Calculate pulses needed for a 90° turn
     turnDist  = (M_PI * WHEELBASE) / (360.0f / abs(rotationDegrees));
     rotationsNeeded = turnDist / wheelCirc;
