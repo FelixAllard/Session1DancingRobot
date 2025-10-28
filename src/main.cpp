@@ -4,6 +4,7 @@
 #include "ArcPID.h"
 #include "Rotation.h"
 #include "SimplePID.h"
+#include "PIDStraight.h"
 
 unsigned long startTime = 0;
 
@@ -198,43 +199,98 @@ void sequence() {
     CloseAllLeds();
     LArmLow();
     RArmLow();
+    InitializePIDStraight(20);
     while (millis() - startTime < 4000) {
-        // POSITION 1:
+        TickPidStraight() ; // POSITION 1
         // Advance 20cm
 
     }
 
-    // POSITION 2:
-    // Turn 135 antihoraire
-    // Advance 28,28427cm
+    startTime = millis() ;
+    InitializeMovement(-135, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) {   // POSITION 2 + Turn 135 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
 
-    // POSITION 3:
-    // Turn 90 antihoraire
-    // Advance 28,28427cm
 
-    // POSITION 4:
-    // Turn 90 antihoraire
-    // Advance 28,28427cm
+    startTime = millis() ;
+    InitializeMovement(-90, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) { // POSITION 3 + Turn 90 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
 
-    // POSITION 1:
-    // Turn 90 antihoraire
-    // Advance 28,28427cm
+    startTime = millis() ;
+    InitializeMovement(-90, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) {
+        // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
 
-    // POSITION 2:
-    // Turn 90 antihoraire
-    // Advance 28,28427cm
+    startTime = millis() ;
+    InitializeMovement(-90, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) { // POSITION 1 + Turn 90 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
 
-    // POSITION 3:
-    // Turn 90 antihoraire
-    // Advance 28,28427cm
+    startTime = millis() ;
+    InitializeMovement(-90, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) { // POSITION 2 + Turn 90 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
 
-    // POSITION 4:
-    // Turn 90 antihoraire
-    // Advance 28,28427cm
+    startTime = millis() ;
+    InitializeMovement(-90, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) { // POSITION 3 + Turn 90 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
 
-    // POSITION 0:
-    // Turn 135 antihoraire
-    // Advance 28,28427cm
+
+    startTime = millis() ;
+    InitializeMovement(-90, 100);
+    InitializePIDStraight(28.28427);
+    while (millis() - startTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            TickPidStraight();
+    }
+
+
+    startTime = millis() ;
+    InitializeMovement(-135, 100);
+    InitializePIDStraight(28.28427);
+    bool finished = false;
+    while (millis() - startTime < 4000) {   // POSITION 0 + Turn 135 antihoraire + Advance 28,28427cm
+        DoMovementIteration();
+        if (CheckIfMovementIsFinished())
+            if (TickPidStraight()) {
+                if (finished){}
+                else if (CheckIfMovementIsFinished()) {
+                    InitializeMovement(90, 100);
+                }else {
+                    finished = DoMovementIteration();
+                }
+            }
+
+    }
+
     // Turn 90 horaire (back in position, initial facing)
 
     //TROISIEME CHANSON-----------------------------------------------------------------
@@ -535,7 +591,6 @@ void sequence() {
             RandomLEDs();
             delay(100);
         }
-        28,28
 
         startTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
         LArmStraight();

@@ -5,5 +5,5 @@
 #ifndef SESSION1DANCINGROBOT_PIDSTRAIGHT_H
 #define SESSION1DANCINGROBOT_PIDSTRAIGHT_H
 void InitializePIDStraight(float distance_cm);
-void TickPidStraight();
+bool TickPidStraight();
 #endif //SESSION1DANCINGROBOT_PIDSTRAIGHT_H
