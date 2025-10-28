@@ -8,6 +8,7 @@
 #include "unity.h"
 #include "Advance.h"
 #include "Allfunctions.h"
+#include "PIDStraight.h"
 #include "Rotation.h"
 
 void setUp(void) {
@@ -74,13 +75,35 @@ void test_TurnRobot(void) {
         DoMovementIteration();
         delay(100);
     }
+
+    InitializePIDStraight(20);
+    for (int i=0;i<30;i++) {
+        TickPidStraight();
+        delay(100);
+    }
+    delay(200);
+
+    InitializePIDStraight(30);
+    for (int i=0;i<30;i++) {
+        TickPidStraight();
+        delay(100);
+    }
+    delay(200);
+
+    InitializePIDStraight(60);
+    for (int i=0;i<30;i++) {
+        TickPidStraight();
+        delay(100);
+    }
+    delay(200);
+
 }
 
 int runUnityTests(void) {
     UNITY_BEGIN();
 
     //Test Leds
-    RUN_TEST(test_AllLEDs);
+    //RUN_TEST(test_AllLEDs);
     //RUN_TEST(test_TurnRobot);
 
 

@@ -31,19 +31,28 @@ float minSpeed = 0.1;
 long lastError = targetPulses;
 float integral = 0;
 
-void InitializePIDStraight(float distance_cm) {
+void InitializePIDStraight(float distance_cm, float straightSpeed) {
     // Reset encoders
     ENCODER_Reset(0);
     ENCODER_Reset(1);
 
+    // Compute target pulses
     targetPulses = (distance_cm / WHEEL_CIRCUMFERENCE_CM) * PULSES_PER_ROTATION;
-    maxSpeed = 0.6;
-    minSpeed = 0.1;
 
-    lastError = targetPulses;
+    // Reset PID state variables
     integral = 0;
+    lastError = 0;  // Reset previous error completely
 
+    // Reset timing
+    straightLastTime = millis();
+
+    // Set motion parameters
+    maxSpeed = straightSpeed;
+    minSpeed = straightSpeed / 6;
+
+    // Optional: brief delay to ensure encoders reset properly before reading
 }
+
 bool TickPidStraight() {
     unsigned long now = millis();
     float dt = (now - straightLastTime) / 1000.0;

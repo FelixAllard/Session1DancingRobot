@@ -11,7 +11,7 @@
 #define ENCODER_PPR 3000.0f
 #define WHEEL_DIAMETER 7.5f   // cm
 #define WHEELBASE 18.0f       // cm
-float TURN_SPEED = 0.30f  ;    // constant turning speed
+float TURN_SPEED = 0.230f  ;    // constant turning speed
 
 
 unsigned long tickTimer;
@@ -64,19 +64,13 @@ void InitializeMovement(float degree, int ticksRequired, float speed) {
 }
 
 bool CheckIfMovementIsFinished() {
-    long leftCount  = ENCODER_Read(0);
-    long rightCount = ENCODER_Read(1);
-
-    // Average distance moved
-    float avgDist = (fabs(leftCount) + fabs(rightCount)) / 2.0f;
-
-    if (avgDist >= pulsesTarget)
-        return true;
-    return false;
+    return finishedMovement;
 }
 
 
 bool DoMovementIteration() {
+    if (finishedMovement)
+        return true;
     if (tickTimer!=0) {
         unsigned long currentTime = millis();
         timeSincePreviousTick = currentTime - tickTimer;
@@ -92,11 +86,17 @@ bool DoMovementIteration() {
     // Average distance moved
     float avgDist = (fabs(leftCount) + fabs(rightCount)) / 2.0f;
 
-    if (avgDist >= pulsesTarget) {
+    if (fabs(leftCount) >= pulsesTarget && fabs(rightCount) >= pulsesTarget) {
         MOTOR_SetSpeed(0, 0.0f);
         MOTOR_SetSpeed(1, 0.0f);
+
+        delay(20);               // let motors fully stop
+        ENCODER_Reset(0);        // reset encoders after turn
+        ENCODER_Reset(1);        // so next move starts from zero
+        finishedMovement = true;
         return true;
     }
+
 
     // Apply constant speed with small bias correction
     float leftSpeed  = (turningRight ?  TURN_SPEED : -TURN_SPEED); //* motorBias_Base[0];
