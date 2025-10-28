@@ -13,9 +13,9 @@ const int PULSES_PER_ROTATION = 3200;
 const float WHEEL_CIRCUMFERENCE_CM = WHEEL_DIAMETER_CM * 3.14159;
 
 // PID constants
-float Kp = 0.005;  // Proportional gain
-float Ki = 0.0001; // Integral gain
-float Kd = 0.001;  // Derivative gain
+float KpStraight = 0.005;  // Proportional gain
+float KiStraight = 0.0001; // Integral gain
+float KdStraight = 0.001;  // Derivative gain
 
 
 const float integralMax = 50.0;
@@ -23,7 +23,7 @@ const long tolerance = 20;
 
 unsigned long lastTime = millis();
 
-long targetPulses = (distance_cm / WHEEL_CIRCUMFERENCE_CM) * PULSES_PER_ROTATION;
+long targetPulses = 0;
 
 float maxSpeed = 0.6;
 float minSpeed = 0.1;
@@ -68,7 +68,7 @@ bool TickPidStraight() {
     float derivative = (error - lastError) / dt;
     lastError = error;
 
-    float baseSpeed = Kp * error + Ki * integral + Kd * derivative;
+    float baseSpeed = KpStraight * error + KiStraight * integral + KdStraight * derivative;
 
     // Trapezoid deceleration near target
     if (abs(error) < targetPulses * 0.2) baseSpeed *= 0.5;
