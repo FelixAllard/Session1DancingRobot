@@ -3,7 +3,7 @@
 #include <librobus.h>
 
 #include "Rotation.h"
-#include "SimplePID.h"
+#include "ArcPID.h"
 unsigned long startTime = 0;
 
 void setup() {
@@ -14,11 +14,12 @@ void setup() {
 
     InitServosArms();
     SetupLEDS();
-
+    LeftTurnArc(62);
 }
 
 void loop() {
     Serial.println(" Hello World ");
+
 }
 
 
