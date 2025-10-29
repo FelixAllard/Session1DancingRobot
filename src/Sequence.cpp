@@ -12,6 +12,7 @@
 
 unsigned long sequenceStartTime = 0;
 bool finished = false;
+
 void ChangeStep() {
     RedLEDOn();
     BlueLEDOn();
@@ -234,12 +235,13 @@ void Song1() {
 void Song2() {
     //DEUXIEME CHANSON----------------------------------------------------------------
 
+
     //TODO Position 1
     sequenceStartTime = millis();    // Position 1 + LArmLow + RArmLow
     CloseAllLeds();
     LArmLow();
     RArmLow();
-    InitializePIDStraight(20, 0.4);
+    InitializePIDStraight(20, 0.3);
     while (millis() - sequenceStartTime < 4000) {
         TickPidStraight() ; // POSITION 1
         // Advance 20cm
@@ -250,7 +252,7 @@ void Song2() {
     ChangeStep();
     sequenceStartTime = millis() ;
     InitializeMovement(-135, 100);
-    InitializePIDStraight(28.28427, 0.4);
+    InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) {   // POSITION 2 + Turn 135 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
@@ -262,7 +264,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     InitializeMovement(-90, 100);
-    InitializePIDStraight(28.28427, 0.4);
+    InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 3 + Turn 90 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
@@ -274,7 +276,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     InitializeMovement(-90, 100);
-    InitializePIDStraight(28.28427,0.4);
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
@@ -286,7 +288,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     InitializeMovement(-90, 100);
-    InitializePIDStraight(28.28427, 0.4);
+    InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 1 + Turn 90 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
@@ -298,7 +300,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     InitializeMovement(-90, 100);
-    InitializePIDStraight(28.28427, 0.4);
+    InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 2 + Turn 90 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
@@ -311,7 +313,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     InitializeMovement(-90, 100);
-    InitializePIDStraight(28.28427, 0.4);
+    InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 3 + Turn 90 antihoraire + Advance 28,28427cm
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
@@ -324,33 +326,54 @@ void Song2() {
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.6);
     while (millis() - sequenceStartTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
-        unsigned long temporary = millis();
+        //unsigned long temporary = millis();
         DoMovementIteration();
         if (CheckIfMovementIsFinished())
             TickPidStraight();
-        delay(10-(millis()-temporary));
+        delay(10);
+        //delay(10-(millis()-temporary));
     }
 
-    ChangeStep();
+    int stepsStep=0;
     sequenceStartTime = millis() ;
     InitializeMovement(-135, 100);
     InitializePIDStraight(20.28427,0.8);
 
     while (millis() - sequenceStartTime < 4000) {   // POSITION 0 + Turn 135 antihoraire + Advance 28,28427cm
-        unsigned long temporary = millis();
-        DoMovementIteration();
-
-        if (CheckIfMovementIsFinished())
-            if (TickPidStraight()) {
-                if (finished){}
-                else if (CheckIfMovementIsFinished()) {
+        Serial.println(stepsStep);
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
                     InitializeMovement(90, 100);
-                }else {
-                    finished = DoMovementIteration();
+                    delay(100);
+                    ENCODER_Reset(0);
+                    ENCODER_Reset(1);
                 }
-            }
-        delay(10-(millis()-temporary));
+                break;
+            case 1:
+                if (TickPidStraight()) {
+                    stepsStep++;
+                    delay(100);
+                    ENCODER_Reset(0);
+                    ENCODER_Reset(1);
+                }
 
+                break;
+            case 2:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    delay(100);
+                    ENCODER_Reset(0);
+                    ENCODER_Reset(1);
+                }
+                break;
+            default:
+                break;
+        }
+        delay(5);
     }
 }
 

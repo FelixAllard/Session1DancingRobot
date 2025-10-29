@@ -4,8 +4,6 @@
 #include <Arduino.h>
 #include <unity.h>
 #include "librobus.h"
-
-#include "unity.h"
 #include "Advance.h"
 #include "Allfunctions.h"
 #include "PIDStraight.h"
@@ -98,6 +96,50 @@ void test_TurnRobot(void) {
     delay(200);
 
 }
+void test_Movement() {
+    unsigned long sequenceStartTime = 0;
+    int stepsStep=0;
+    sequenceStartTime = millis() ;
+    InitializeMovement(-135, 100);
+    InitializePIDStraight(20.28427,0.8);
+
+    while (millis() - sequenceStartTime < 4000) {   // POSITION 0 + Turn 135 antihoraire + Advance 28,28427cm
+        Serial.println(stepsStep);
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    InitializeMovement(90, 100);
+                    delay(100);
+                    ENCODER_Reset(0);
+                    ENCODER_Reset(1);
+                }
+                break;
+            case 1:
+                if (TickPidStraight()) {
+                    stepsStep++;
+                    delay(100);
+                    ENCODER_Reset(0);
+                    ENCODER_Reset(1);
+                }
+
+                break;
+            case 2:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    delay(100);
+                    ENCODER_Reset(0);
+                    ENCODER_Reset(1);
+                }
+                break;
+            default:
+                break;
+        }
+        delay(5);
+    }
+}
 
 int runUnityTests(void) {
     UNITY_BEGIN();
@@ -105,6 +147,7 @@ int runUnityTests(void) {
     //Test Leds
     //RUN_TEST(test_AllLEDs);
     //RUN_TEST(test_TurnRobot);
+    RUN_TEST(test_Movement);
 
 
     return UNITY_END();
@@ -126,10 +169,11 @@ int main(void) {
   */
 void setup() {
     BoardInit();
+
     Serial.begin(115200);
     delay(300);
     SetupLEDS();
-
+    InitServosArms();
     // Wait ~2 seconds before the Unity test runner
     // establishes connection with a board Serial interface
     delay(2000);
