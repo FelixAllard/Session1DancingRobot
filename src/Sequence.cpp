@@ -12,6 +12,7 @@
 
 unsigned long sequenceStartTime = 0;
 bool finished = false;
+int stepsStep=0;
 
 void ChangeStep() {
     RedLEDOn();
@@ -340,7 +341,7 @@ void Song2() {
         //delay(10-(millis()-temporary));
     }
 
-    int stepsStep=0;
+
     sequenceStartTime = millis() ;
     InitializeMovement(-135, 100);
     InitializePIDStraight(20.28427,0.8);
