@@ -8,7 +8,7 @@
 // Motor and encoder functions (as you described)
 
 // Wheel and encoder constants
-const float WHEEL_DIAMETER_CM = 7.35;
+const float WHEEL_DIAMETER_CM = 7.55;
 const int PULSES_PER_ROTATION = 3200;
 const float WHEEL_CIRCUMFERENCE_CM = WHEEL_DIAMETER_CM * 3.14159;
 

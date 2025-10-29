@@ -140,6 +140,22 @@ void test_Movement() {
         delay(5);
     }
 }
+void test_Turn() {
+    while (true) {
+        InitializeMovement(360, 100);
+        while (!DoMovementIteration()) {
+            delay(10);
+        }
+        delay(3000);
+        InitializeMovement(-360,100);
+        while (!DoMovementIteration()) {
+
+            delay(10);
+        }
+        delay(3000);
+    }
+}
+
 
 int runUnityTests(void) {
     UNITY_BEGIN();
@@ -147,7 +163,7 @@ int runUnityTests(void) {
     //Test Leds
     //RUN_TEST(test_AllLEDs);
     //RUN_TEST(test_TurnRobot);
-    RUN_TEST(test_Movement);
+    //RUN_TEST(test_Turn);
 
 
     return UNITY_END();
