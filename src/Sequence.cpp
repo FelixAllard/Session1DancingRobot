@@ -258,60 +258,136 @@ void Song2() {
 
     ChangeStep();
     sequenceStartTime = millis() ;
+    stepsStep = 0;
     InitializeMovement(-135, 100);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) {   // POSITION 2 + Turn 135 antihoraire + Advance 28,28427cm
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
+
         delay(10);
     }
+
+
     ChangeStep();
 
 
     sequenceStartTime = millis() ;
+    stepsStep = 0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 3 + Turn 90 antihoraire + Advance 28,28427cm
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
+
         delay(10);
     }
 
     ChangeStep();
 
-    sequenceStartTime = millis() ;
+    sequenceStartTime = millis();
+    stepsStep = 0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
         delay(10);
     }
 
     ChangeStep();
 
     sequenceStartTime = millis() ;
+    stepsStep = 0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 1 + Turn 90 antihoraire + Advance 28,28427cm
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
+
         delay(10);
     }
 
     ChangeStep();
 
     sequenceStartTime = millis() ;
+    stepsStep = 0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 2 + Turn 90 antihoraire + Advance 28,28427cm
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
+
         delay(10);
 
     }
@@ -319,26 +395,54 @@ void Song2() {
     ChangeStep();
 
     sequenceStartTime = millis() ;
+    stepsStep = 0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 3 + Turn 90 antihoraire + Advance 28,28427cm
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
+
         delay(10);
     }
     ChangeStep();
 
     sequenceStartTime = millis() ;
+    stepsStep=0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.6);
     while (millis() - sequenceStartTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
-        //unsigned long temporary = millis();
-        DoMovementIteration();
-        if (CheckIfMovementIsFinished())
-            TickPidStraight();
+        switch (stepsStep) {
+            case 0:
+                DoMovementIteration();
+                if (CheckIfMovementIsFinished()) {
+                    stepsStep++;
+                    ResetEncoders();
+                }
+
+                break;
+            case 1:
+                if (TickPidStraight())
+                    stepsStep++;
+            default:
+                break;
+
+        }
+
         delay(10);
-        //delay(10-(millis()-temporary));
     }
 
 
