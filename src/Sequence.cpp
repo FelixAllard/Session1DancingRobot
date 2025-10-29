@@ -25,6 +25,12 @@ void ChangeStep() {
 void Sequence() {
     Song2();
 }
+void ResetEncoders() {
+    delay(100);
+    ENCODER_Reset(0);
+    ENCODER_Reset(1);
+
+}
 
 
 void Song1() {
