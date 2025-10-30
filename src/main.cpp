@@ -16,7 +16,6 @@ void setup() {
     SetupLEDS();
 
     WaitForBumperStart();
-    MOTOR_SetSpeed(1,1.0);
     Sequence();
     /*InitializePIDStraight(100);
     while (true) {

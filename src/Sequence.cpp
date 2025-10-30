@@ -24,11 +24,12 @@ void ChangeStep() {
     CloseAllLeds();*/
 }
 void Sequence() {
-    Song1();
-    Song2();
-    Song3();
-    Song4();
-    Song5();
+    // Song1();
+    // Song2();
+    // Song3();
+    // Song4();
+    // Song5();
+    Song6();
 }
 void ResetEncoders() {
     delay(200);
@@ -1128,7 +1129,6 @@ void Song6() {
 
     sequenceStartTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
     stepsStep=0;
-    RandomLEDs();
     LArmStraight();
     RArmHigh();
     InitializeMovement(-90,100); // POSITION 4: // Turn 90 antihoraire // Advance 28,28427cm
@@ -1165,6 +1165,7 @@ void Song6() {
         InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
         InitializePIDStraight(28.28427);
         while (millis() - sequenceStartTime < 2000) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
+            RandomLEDs();
             switch (stepsStep) {
                 case 0:
                     DoMovementIteration();
@@ -1411,7 +1412,7 @@ void Song6() {
     RArmHigh();
     InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
     InitializePIDStraight(28.28427);
-    while (millis() - sequenceStartTime < 2000) {
+    while (millis() - sequenceStartTime < 5000) {
         RandomLEDs();
         switch (stepsStep) {
             case 0:
@@ -1439,7 +1440,7 @@ void Song6() {
             default:
                 break;
         }
-        delay(5);
+        delay(10);
     }
 
     sequenceStartTime = millis();    // POSITION 0 + RandomLEDs
@@ -1448,15 +1449,14 @@ void Song6() {
     RArmLow();
     InitializeMovement(-135, 100);
     InitializePIDStraight(20);
-    finished = false;
-    while (millis() - sequenceStartTime < 2000) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 180 hor
+    while (millis() - sequenceStartTime < 15000) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 180 hor
         RandomLEDs();
         switch (stepsStep) {
             case 0:
                 DoMovementIteration();
                 if (CheckIfMovementIsFinished()) {
                     stepsStep++;
-                    InitializeMovement(180, 100);
+                    InitializeMovement(1070, 100);
                     ResetEncoders();
                 }
                 break;
@@ -1477,16 +1477,16 @@ void Song6() {
             default:
                 break;
         }
-        delay(5);
+        delay(10);
     }
 
 
     sequenceStartTime = millis();    // 1080 horaire
     InitializeMovement(1080,100);
-    while (millis() - sequenceStartTime < 2000) {
+    while (millis() - sequenceStartTime < 8000) {
         DoMovementIteration();
 
-        delay(100);
+        delay(10);
     }
     CloseAllLeds();
 }
