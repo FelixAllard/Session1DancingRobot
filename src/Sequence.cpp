@@ -14,7 +14,7 @@ unsigned long sequenceStartTime = 0;
 bool finished = false;
 int stepsStep=0;
 
-void ChangeStep() {
+void ChangeStep(){
     /*RedLEDOn();
     BlueLEDOn();
     GreenLEDOn();
@@ -48,18 +48,17 @@ void Song1() {
     YellowLEDOff();
     GreenLEDOff();
     BlueLEDOff();
-    while (millis() - sequenceStartTime < 8000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
+    while (millis() - sequenceStartTime < 9000) { //Current time - start time = time spent in milli seconds. SO here it is 5 seconds
 
     }
 
-    ChangeStep();
 
 
     sequenceStartTime = millis();    // LArmHigh
     LArmHigh();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
+
 
     sequenceStartTime = millis();    // LArmHigh + RArmHigh
     CloseAllLeds();
@@ -67,7 +66,7 @@ void Song1() {
     RArmHigh();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
+
 
     sequenceStartTime = millis();    // LArmLow + RArmHigh
     CloseAllLeds();
@@ -75,7 +74,7 @@ void Song1() {
     RArmHigh();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
+
 
     sequenceStartTime = millis();    // LArmLow + RArmLow for 18 seconds
     CloseAllLeds();
@@ -83,27 +82,26 @@ void Song1() {
     LArmLow();
     while (millis() - sequenceStartTime < 18000) {}
 
-    ChangeStep();
+
 
     sequenceStartTime = millis();
     CloseAllLeds();
     RedLEDOn();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
+
 
     sequenceStartTime = millis();    // YellowLEDOn
     CloseAllLeds();
     YellowLEDOn();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // GreenLEDOn
+    CloseAllLeds();
     GreenLEDOn();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // BlueLEDOn
     CloseAllLeds();
@@ -111,7 +109,6 @@ void Song1() {
     while (millis() - sequenceStartTime < 2000) {}
 
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // RedLEDOn + LArmStraight + RArmStraight
     CloseAllLeds();
@@ -120,7 +117,6 @@ void Song1() {
     RArmStraight();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // YellowLEDOn + LArmHigh + RArmHigh
     CloseAllLeds();
@@ -129,7 +125,6 @@ void Song1() {
     RArmHigh();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // GreenLEDOn + LArmStraight + RArmStraight
     CloseAllLeds();
@@ -139,7 +134,6 @@ void Song1() {
 
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // BlueLEDOn + LArmLow + RArmLow
     CloseAllLeds();
@@ -148,7 +142,6 @@ void Song1() {
     RArmLow();
     while (millis() - sequenceStartTime < 2000) {}
 
-    ChangeStep();
 
     //TODO 360
     sequenceStartTime = millis();    // 360 horaire + RandomLEDs + LArmHigh + RArmHigh
@@ -166,7 +159,6 @@ void Song1() {
         delay(10);
     }
 
-    ChangeStep();
 
 
     sequenceStartTime = millis();     // Alternated RedLEDOn/YellowLEDOn + LArmLow + RArmLow
@@ -182,7 +174,6 @@ void Song1() {
         delay(100);
     }
 
-    ChangeStep();
 
     sequenceStartTime = millis();     // Alternated YellowLEDOn/GreenLEDOn
     CloseAllLeds();
@@ -197,7 +188,6 @@ void Song1() {
         delay(100);
     }
 
-    ChangeStep();
 
 
     sequenceStartTime = millis();     // Alternated GreenLEDOn/BlueLEDOn
@@ -213,7 +203,6 @@ void Song1() {
         delay(100);
     }
 
-    ChangeStep();
 
     sequenceStartTime = millis();    // Alternated BlueLEDOn/RedLEDOn
     CloseAllLeds();
@@ -228,7 +217,6 @@ void Song1() {
         delay(100);
     }
 
-    ChangeStep();
 
 
     //TODO 360 AntiHoraire
@@ -261,7 +249,6 @@ void Song2() {
 
     }
 
-    ChangeStep();
     sequenceStartTime = millis() ;
     stepsStep = 0;
     InitializeMovement(-135, 100);
@@ -288,7 +275,6 @@ void Song2() {
     }
 
 
-    ChangeStep();
 
 
     sequenceStartTime = millis() ;
@@ -316,7 +302,6 @@ void Song2() {
         delay(10);
     }
 
-    ChangeStep();
 
     sequenceStartTime = millis();
     stepsStep = 0;
@@ -342,7 +327,6 @@ void Song2() {
         delay(10);
     }
 
-    ChangeStep();
 
     sequenceStartTime = millis() ;
     stepsStep = 0;
@@ -369,7 +353,6 @@ void Song2() {
         delay(10);
     }
 
-    ChangeStep();
 
     sequenceStartTime = millis() ;
     stepsStep = 0;
@@ -397,7 +380,6 @@ void Song2() {
 
     }
 
-    ChangeStep();
 
     sequenceStartTime = millis() ;
     stepsStep = 0;
@@ -423,7 +405,6 @@ void Song2() {
 
         delay(10);
     }
-    ChangeStep();
 
     sequenceStartTime = millis() ;
     stepsStep=0;
@@ -877,7 +858,7 @@ void Song5() {
     LArmLow();
     RArmLow();
     InitializeMovement(-90,100); // POSITION 3: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427),0.3f;
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {
             case 0:
@@ -906,7 +887,7 @@ void Song5() {
     LArmStraight();
     RArmStraight();
     InitializeMovement(-90,100); // POSITION 4: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427,0.3f);
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {
             case 0:
@@ -935,7 +916,7 @@ void Song5() {
     LArmHigh();
     RArmHigh();
     InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427,0.3f);
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {
             case 0:
@@ -963,7 +944,7 @@ void Song5() {
     LArmHigh();
     RArmStraight();
     InitializeMovement(-90,100); // POSITION 2: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427,0.3f);
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {
             case 0:
@@ -991,7 +972,7 @@ void Song5() {
     LArmStraight();
     RArmStraight();
     InitializeMovement(-90,100); // POSITION 3: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427,0.3f);
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {
             case 0:
@@ -1018,7 +999,7 @@ void Song5() {
     LArmStraight();
     RArmHigh();
     InitializeMovement(-90,100); // POSITION 4: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427,0.3f);
+    InitializePIDStraight(28.28427,0.3);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {
             case 0:
@@ -1048,7 +1029,7 @@ void Song6() {
     LArmHigh();
     RArmHigh();
     InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427,0.6f);
+    InitializePIDStraight(28.28427,0.6);
     while (millis() - sequenceStartTime < 2360) {
         RandomLEDs();
         switch (stepsStep) {
@@ -1163,7 +1144,7 @@ void Song6() {
         LArmHigh();
         RArmHigh();
         InitializeMovement(-90,100,0.6); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
-        InitializePIDStraight(28.28427,0.6f);
+        InitializePIDStraight(28.28427,0.6);
         while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
             RandomLEDs();
             switch (stepsStep) {
@@ -1279,219 +1260,219 @@ void Song6() {
         }
 
     }
-
-    sequenceStartTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
-    stepsStep=0;
-    LArmHigh();
-    RArmHigh();
-    InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm +360
-    InitializePIDStraight(28.28427);
-    while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
-        RandomLEDs();
-        switch (stepsStep) {
-            case 0:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    InitializeMovement(360, 100,0.6f);
-                    ResetEncoders();
-                }
-                break;
-            case 1:
-                if (TickPidStraight()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-
-                break;
-            case 2:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            default:
-                break;
-        }
-        delay(10);
-    }
-
-
-    sequenceStartTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
-    stepsStep=0;
-    LArmHigh();
-    RArmStraight();
-    InitializeMovement(-90,100); // POSITION 2: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427);
-    while (millis() - sequenceStartTime < 2360) {
-        RandomLEDs();
-        switch (stepsStep) {
-            case 0:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            case 1:
-                if (TickPidStraight()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            default:
-                break;
-        }
-        delay(10);
-    }
-
-    sequenceStartTime = millis();    // POSITION 3 + RandomLEDs + 360 horaire + LArmStraight + RArmStraight
-    stepsStep=0;
-    LArmStraight();
-    RArmStraight();
-    InitializeMovement(-90,100); // POSITION 3: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427);
-    while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
-        RandomLEDs();
-        switch (stepsStep) {
-            case 0:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    InitializeMovement(360, 100,0.6f);
-                    ResetEncoders();
-                }
-                break;
-            case 1:
-                if (TickPidStraight()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-
-                break;
-            case 2:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            default:
-                break;
-        }
-        delay(10);
-    }
-
-    sequenceStartTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
-    stepsStep=0;
-    LArmStraight();
-    RArmHigh();
-    InitializeMovement(-90,100); // POSITION 4: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427);
-    while (millis() - sequenceStartTime < 2360) {
-        RandomLEDs();
-        switch (stepsStep) {
-            case 0:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            case 1:
-                if (TickPidStraight()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            default:
-                break;
-        }
-        delay(10);
-    }
-
-    sequenceStartTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
-    stepsStep=0;
-    LArmHigh();
-    RArmHigh();
-    InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
-    InitializePIDStraight(28.28427);
-    while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
-        RandomLEDs();
-        switch (stepsStep) {
-            case 0:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    InitializeMovement(360, 100,0.6f);
-                    ResetEncoders();
-                }
-                break;
-            case 1:
-                if (TickPidStraight()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-
-                break;
-            case 2:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            default:
-                break;
-        }
-        delay(10);
-    }
-
-    sequenceStartTime = millis();    // POSITION 0 + RandomLEDs
-    stepsStep=0;
-    LArmLow();
-    RArmLow();
-    InitializeMovement(-135, 100);
-    InitializePIDStraight(20);
-    while (millis() - sequenceStartTime < 2360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 180 hor
-        RandomLEDs();
-        switch (stepsStep) {
-            case 0:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    InitializeMovement(180, 100,0.6f);
-                    ResetEncoders();
-                }
-                break;
-            case 1:
-                if (TickPidStraight()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-
-                break;
-            case 2:
-                DoMovementIteration();
-                if (CheckIfMovementIsFinished()) {
-                    stepsStep++;
-                    ResetEncoders();
-                }
-                break;
-            default:
-                break;
-        }
-        delay(10);
-    }
-
-
-    sequenceStartTime = millis();    // 1080 horaire
-    InitializeMovement(1080,100,0.6f);
-    while (millis() - sequenceStartTime < 8000) {
-        DoMovementIteration();
-
-        delay(10);
-    }
+    //
+    // sequenceStartTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+    // stepsStep=0;
+    // LArmHigh();
+    // RArmHigh();
+    // InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm +360
+    // InitializePIDStraight(28.28427);
+    // while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
+    //     RandomLEDs();
+    //     switch (stepsStep) {
+    //         case 0:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 InitializeMovement(360, 100,0.6);
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         case 1:
+    //             if (TickPidStraight()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //
+    //             break;
+    //         case 2:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     delay(10);
+    // }
+    //
+    //
+    // sequenceStartTime = millis();    // POSITION 2 + RandomLEDs + LArmHigh + RArmStraight
+    // stepsStep=0;
+    // LArmHigh();
+    // RArmStraight();
+    // InitializeMovement(-90,100); // POSITION 2: // Turn 90 antihoraire // Advance 28,28427cm
+    // InitializePIDStraight(28.28427);
+    // while (millis() - sequenceStartTime < 2360) {
+    //     RandomLEDs();
+    //     switch (stepsStep) {
+    //         case 0:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         case 1:
+    //             if (TickPidStraight()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     delay(10);
+    // }
+    //
+    // sequenceStartTime = millis();    // POSITION 3 + RandomLEDs + 360 horaire + LArmStraight + RArmStraight
+    // stepsStep=0;
+    // LArmStraight();
+    // RArmStraight();
+    // InitializeMovement(-90,100); // POSITION 3: // Turn 90 antihoraire // Advance 28,28427cm
+    // InitializePIDStraight(28.28427);
+    // while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
+    //     RandomLEDs();
+    //     switch (stepsStep) {
+    //         case 0:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 InitializeMovement(360, 100,0.6f);
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         case 1:
+    //             if (TickPidStraight()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //
+    //             break;
+    //         case 2:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     delay(10);
+    // }
+    //
+    // sequenceStartTime = millis();    // POSITION 4 + RandomLEDs + LArmStraight + RArmHigh
+    // stepsStep=0;
+    // LArmStraight();
+    // RArmHigh();
+    // InitializeMovement(-90,100); // POSITION 4: // Turn 90 antihoraire // Advance 28,28427cm
+    // InitializePIDStraight(28.28427);
+    // while (millis() - sequenceStartTime < 2360) {
+    //     RandomLEDs();
+    //     switch (stepsStep) {
+    //         case 0:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         case 1:
+    //             if (TickPidStraight()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     delay(10);
+    // }
+    //
+    // sequenceStartTime = millis();    // POSITION 1 + RandomLEDs + 360 horaire + LArmHigh + RArmHigh
+    // stepsStep=0;
+    // LArmHigh();
+    // RArmHigh();
+    // InitializeMovement(-90,100); // POSITION 1: // Turn 90 antihoraire // Advance 28,28427cm
+    // InitializePIDStraight(28.28427);
+    // while (millis() - sequenceStartTime < 3360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 90 hor
+    //     RandomLEDs();
+    //     switch (stepsStep) {
+    //         case 0:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 InitializeMovement(360, 100,0.6f);
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         case 1:
+    //             if (TickPidStraight()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //
+    //             break;
+    //         case 2:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     delay(10);
+    // }
+    //
+    // sequenceStartTime = millis();    // POSITION 0 + RandomLEDs
+    // stepsStep=0;
+    // LArmLow();
+    // RArmLow();
+    // InitializeMovement(-135, 100);
+    // InitializePIDStraight(20);
+    // while (millis() - sequenceStartTime < 2360) {   // POSITION 0 + Turn 135 antihoraire + Advance 20cm + 180 hor
+    //     RandomLEDs();
+    //     switch (stepsStep) {
+    //         case 0:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 InitializeMovement(180, 100,0.6f);
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         case 1:
+    //             if (TickPidStraight()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //
+    //             break;
+    //         case 2:
+    //             DoMovementIteration();
+    //             if (CheckIfMovementIsFinished()) {
+    //                 stepsStep++;
+    //                 ResetEncoders();
+    //             }
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     delay(10);
+    // }
+    //
+    //
+    // sequenceStartTime = millis();    // 1080 horaire
+    // InitializeMovement(1080,100,0.6);
+    // while (millis() - sequenceStartTime < 8000) {
+    //     DoMovementIteration();
+    //
+    //     delay(10);
+    // }
     CloseAllLeds();
 }
