@@ -22,7 +22,7 @@ extern bool finishedMovement;
 /// @param degree How many degrees to turn, either positive for to the right and negative to the left
 /// @param ticksRequired How many time do we need to call DoMovementIteration() for the full rotation to be achieved;
 /// @author Felix
-void InitializeMovement(float degree, int ticksRequired, float speed =0.5f);
+void InitializeMovement(float degree, int ticksRequired, float speed =0.25f);
 
 /// This tells us if we finished tunrning
 /// @return True if we finished turning and false if not

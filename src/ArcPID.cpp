@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 const float WHEEL_BASE_CM = 18.9;          // distance between wheels
-const float ARC_WHEEL_DIAMETER_CM = 8.89;  // wheel diameter
+const float ARC_WHEEL_DIAMETER_CM = 8.40;  // wheel diameter
 const int ARC_PULSES_PER_ROTATION = 3200;
 const float ARC_WHEEL_CIRCUMFERENCE_CM = ARC_WHEEL_DIAMETER_CM * M_PI;
 

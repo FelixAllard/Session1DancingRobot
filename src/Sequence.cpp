@@ -15,19 +15,23 @@ bool finished = false;
 int stepsStep=0;
 
 void ChangeStep() {
-    RedLEDOn();
+    /*RedLEDOn();
     BlueLEDOn();
     GreenLEDOn();
     YellowLEDOn();
     Serial.println("Change Step");
     delay(1000);
-    CloseAllLeds();
+    CloseAllLeds();*/
 }
 void Sequence() {
+    Song1();
+    Song2();
+    Song3();
+    Song4();
     Song5();
 }
 void ResetEncoders() {
-    delay(100);
+    delay(200);
     ENCODER_Reset(0);
     ENCODER_Reset(1);
 
@@ -341,7 +345,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     stepsStep = 0;
-    InitializeMovement(-90, 100);
+    InitializeMovement(-90, 100, 0.2);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 1 + Turn 90 antihoraire + Advance 28,28427cm
         switch (stepsStep) {
@@ -368,7 +372,7 @@ void Song2() {
 
     sequenceStartTime = millis() ;
     stepsStep = 0;
-    InitializeMovement(-90, 100);
+    InitializeMovement(-90, 100, 0.2f);
     InitializePIDStraight(28.28427, 0.3);
     while (millis() - sequenceStartTime < 4000) { // POSITION 2 + Turn 90 antihoraire + Advance 28,28427cm
         switch (stepsStep) {
@@ -424,6 +428,7 @@ void Song2() {
     stepsStep=0;
     InitializeMovement(-90, 100);
     InitializePIDStraight(28.28427, 0.3);
+
     while (millis() - sequenceStartTime < 4000) { // POSITION 4 + Turn 90 antihoraire + Advance 28,28427cm
         switch (stepsStep) {
             case 0:
@@ -457,7 +462,7 @@ void Song2() {
                 DoMovementIteration();
                 if (CheckIfMovementIsFinished()) {
                     stepsStep++;
-                    InitializeMovement(90, 100);
+                    InitializeMovement(122, 100, 0.4f);
                     delay(300);
                     ENCODER_Reset(0);
                     ENCODER_Reset(1);
@@ -655,7 +660,7 @@ void Song3() {
     //TODO 720 horaire
     sequenceStartTime = millis();    // 720 horaire + RandomLEDs
     CloseAllLeds();
-    InitializeMovement(828,100);
+    InitializeMovement(720,100, 0.4);
     while (millis() - sequenceStartTime < 4000) {
         DoMovementIteration();
         RandomLEDs();
@@ -797,7 +802,7 @@ void Song4() {
                 DoMovementIteration();
                 if (CheckIfMovementIsFinished()) {
                     stepsStep++;
-                    InitializeMovement(90, 100);
+                    InitializeMovement(93, 100);
                     ResetEncoders();
                 }
                 break;
@@ -841,7 +846,7 @@ void Song5() {
     YellowLEDOn();
     LArmHigh();
     RArmHigh();
-    InitializeMovement(-130,100); // POSITION 2: // Turn 135 antihoraire // Advance 28,28427cm
+    InitializeMovement(-135,100); // POSITION 2: // Turn 135 antihoraire // Advance 28,28427cm
     InitializePIDStraight(28.28427);
     while (millis() - sequenceStartTime < 4000) {
         switch (stepsStep) {

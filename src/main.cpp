@@ -2,6 +2,7 @@
 #include <Allfunctions.h>
 #include <librobus.h>
 
+#include "BumperStart.h"
 #include "Sequence.h"
 
 
@@ -14,6 +15,8 @@ void setup() {
     InitServosArms();
     SetupLEDS();
 
+    WaitForBumperStart();
+    MOTOR_SetSpeed(1,1.0);
     Sequence();
     /*InitializePIDStraight(100);
     while (true) {
@@ -23,7 +26,7 @@ void setup() {
 }
 
 void loop() {
-    Serial.println(" Hello World ");
+    Serial.println("Goodbye World ");
 }
 
 

@@ -9,9 +9,9 @@
 #include <LibRobus.h>
 
 #define ENCODER_PPR 3200.0f
-#define WHEEL_DIAMETER 8.40f   // cm
-#define WHEELBASE 18.0f       // cm
-float TURN_SPEED = 0.2f  ;    // constant turning speed
+#define WHEEL_DIAMETER 7.625f   // cm
+#define WHEELBASE 18.9f       // cm
+float TURN_SPEED = 0.15f  ;    // constant turning speed
 
 
 unsigned long tickTimer;
@@ -86,17 +86,12 @@ bool DoMovementIteration() {
     // Average distance moved
     float avgDist = (fabs(leftCount) + fabs(rightCount)) / 2.0f;
 
-    if (fabs(leftCount) >= pulsesTarget && fabs(rightCount) >= pulsesTarget) {
+    if (avgDist >= pulsesTarget) {
         MOTOR_SetSpeed(0, 0.0f);
         MOTOR_SetSpeed(1, 0.0f);
-
-        delay(20);               // let motors fully stop
-        ENCODER_Reset(0);        // reset encoders after turn
-        ENCODER_Reset(1);        // so next move starts from zero
         finishedMovement = true;
         return true;
     }
-
 
     // Apply constant speed with small bias correction
     float leftSpeed  = (turningRight ?  TURN_SPEED : -TURN_SPEED); //* motorBias_Base[0];
